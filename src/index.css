@@ -70,3 +70,7 @@ h6 {
 .promo-2:hover {
   transform: scale(1.06);
 }
+
+.testimonial {
+  background-image: url(./testi.webp);
+}

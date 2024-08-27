@@ -8,7 +8,7 @@ const Promo = () => {
         <div className="overflow-hidden">
           <div className="bg-cover bg-center text-white promo-1 cursor-pointer">
             <div className="bg-black bg-opacity-25 md:p-20 py-12 lg:px-24 md:px-16 px-8 flex flex-col justify-end promoContent xl:min-h-[600px]">
-              <h2 className="sm:text-4xl text-3xl font-bold">
+              <h2 className="sm:text-4xl uppercase text-3xl font-bold">
                 Get 20% Off Your First Ride!
               </h2>
               <p className="lg:mb-12 mb-8 mt-3 sm:text-base text-sm">
@@ -30,7 +30,7 @@ const Promo = () => {
         <div className="overflow-hidden xl:block hidden">
           <div className="bg-cover bg-center text-white promo-2 cursor-pointer">
             <div className="bg-black bg-opacity-25 p-20 px-24 flex flex-col justify-end promoContent xl:min-h-[600px]">
-              <h2 className="text-4xl font-bold">
+              <h2 className="text-4xl uppercase font-bold">
                 Summer Special: 30% Off All
               </h2>
               <p className="mb-12 mt-3">
