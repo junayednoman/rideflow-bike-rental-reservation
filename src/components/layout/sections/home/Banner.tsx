@@ -1,9 +1,13 @@
-import RButton from "@/components/ui/RButton";
 import bikeVideo from "@/assets/images/bike-video.mp4";
 import bannerImg from "@/assets/images/banner.jpg";
+import { Button, DatePicker, Input } from "antd";
+import RButtonWhite from "@/components/ui/RButtonWhite";
+import RButtonSmall from "@/components/ui/RButtonSmall";
+const { RangePicker } = DatePicker;
+
 const Banner = () => {
   return (
-    <div className="relative h-screen overflow-hidden text-center">
+    <div className="relative md:h-screen overflow-hidden text-center">
       {/* Video Background */}
       <video
         autoPlay
@@ -23,13 +27,31 @@ const Banner = () => {
       <div className="absolute h-full w-full bg-primaryColor bg-opacity-20"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-white">
-        <h1 className="lg:text-[90px] md:text-7xl text-5xl leading-[70px] font-bold">Unlock Your Next Adventure</h1>
-        <p className="text-xl mt-8 mb-12">
+      <div className="relative z-10 flex flex-col justify-center items-center h-full text-white md:py-0 pt-32">
+        <h1 className="lg:text-[90px] md:text-7xl text-[42px] leading-[60px] font-bold">
+          Unlock Your Next Adventure
+        </h1>
+        <p className="md:text-xl md:mt-8 md:mb-12 my-6">
           Rent a bike in minutes and explore the city with ease. Simple, fast,
           and eco-friendly.
         </p>
-        <RButton>Start Riding</RButton>
+        <RButtonWhite>Start Riding</RButtonWhite>
+        <div className="bg-white z-[9999] p-10 lg:w-[1000px] md:absolute bottom-0 md:mt-0 mt-14">
+          <div className="grid md:grid-cols-4 grid-cols-1 items-center md:gap-4 gap-y-4">
+            <div className="grid md:grid-cols-2 items-center justify-center gap-4 col-span-3">
+              <Input
+                className="rounded-none"
+                size="large"
+                placeholder="enter bike name"
+              />
+              {/* <div></div> */}
+              <RangePicker className="rounded-none" size="large" />
+            </div>
+            <div className=" w-full">
+              <RButtonSmall wFull={true}>Submit</RButtonSmall>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

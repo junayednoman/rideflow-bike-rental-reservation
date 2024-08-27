@@ -4,6 +4,7 @@ import RButtonSmall from "../ui/RButtonSmall";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Drawer } from "antd";
+import RButtonSmallWhite from "../ui/RButtonSmallWhite";
 const menuItems = [
   {
     label: "home",
@@ -35,12 +36,12 @@ const Header = () => {
   };
 
   return (
-    <div className="py-6 absolute top-0 left-0 w-full z-30">
+    <div className="md:py-6 py-5 absolute top-0 left-0 w-full z-30">
       <RContainer>
         <div className="grid lg:grid-cols-5 grid-cols-2 gap-8 items-center justify-between">
           <div className="col-span-1">
             <Link className="inline-block" to={"/"}>
-              <h3 className="text-3xl font-bold uppercase text-white">
+              <h3 className="md:text-3xl text-2xl font-bold uppercase text-white">
                 <span className="text-accentColor">Ride</span>flow
               </h3>
             </Link>
@@ -58,7 +59,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="col-span-1 mt-1 ml-auto lg:block hidden">
-            <RButtonSmall link="#">Login</RButtonSmall>
+            <RButtonSmallWhite link="#">Login</RButtonSmallWhite>
           </div>
           <div className="col-span-1 ml-auto lg:hidden block">
             <Menu

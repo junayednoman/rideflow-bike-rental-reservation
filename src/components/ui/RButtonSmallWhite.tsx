@@ -4,12 +4,12 @@ type RButtonProps = {
   size?: "large" | "middle" | "small";
   link?: string;
 };
-const RButton = ({ children, size, link }: RButtonProps) => {
+const RButtonSmallWhite = ({ children, size, link }: RButtonProps) => {
   return (
     <Button
       type="link"
       href={link}
-      className="RButton bg-accentColor border-accentColor border-2 text-white font-medium rounded-none px-8 py-6"
+      className="RButtonWhite bg-accentColor border-accentColor border-2 text-white font-medium hover:text-primaryColor rounded-none px-6 py-5"
       size={size || "large"}
     >
       {children}
@@ -17,4 +17,4 @@ const RButton = ({ children, size, link }: RButtonProps) => {
   );
 };
 
-export default RButton;
+export default RButtonSmallWhite;
