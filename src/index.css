@@ -74,3 +74,8 @@ h6 {
 .testimonial {
   background-image: url(./testi.webp);
 }
+
+.chooseUsItem:hover .chooseUsIcon {
+  background-color: #fff;
+  color: #1b263b;
+}
