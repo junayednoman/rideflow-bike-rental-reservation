@@ -23,8 +23,9 @@ h6 {
 }
 
 .RButton:hover {
-  color: #1b263b !important;
+  background-color: #1b263b !important;
   border: 2px solid #1b263b !important;
+  color: white !important;
   transition: 0.4s ease;
 }
 .RButtonWhite:hover {
@@ -32,17 +33,6 @@ h6 {
   border: 2px solid #fff !important;
   transition: 0.4s ease;
 }
-/* .RButton:hover {
-  color: #fff !important;
-  border: 2px solid #fff !important;
-  transition: 0.4s ease;
-}
-.RButton2:hover {
-  color: #fff !important;
-  border: 2px solid #fff !important;
-  transition: 0.4s ease;
-} */
-
 .ant-drawer-title {
   text-align: right;
 }
@@ -54,4 +44,29 @@ h6 {
 .button:hover {
   color: #1b263b !important;
   border: 1px solid #1b263b !important;
+}
+
+.rCard:hover .cardBtn {
+  z-index: 10;
+  top: -44px;
+  opacity: 100;
+}
+.rCard:hover .cardIcons {
+  right: 13px !important;
+  opacity: 50 !important;
+}
+
+.promo-1 {
+  background-image: url(./promo-1.webp);
+  transition: 1s ease !important;
+}
+.promo-2 {
+  background-image: url(./promo-2.webp);
+  transition: 2s ease !important;
+}
+.promo-1:hover {
+  transform: scale(1.06);
+}
+.promo-2:hover {
+  transform: scale(1.06);
 }

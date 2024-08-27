@@ -1,10 +1,12 @@
 import Banner from "./components/layout/sections/home/Banner";
+import FeaturedItems from "./components/layout/sections/home/FeaturedItems";
+import Promo from "./components/layout/sections/home/Promo";
 const App = () => {
   return (
     <div>
-        <Banner />
-      <div className="py-32 z-0">
-      </div>
+      <Banner />
+      <Promo />
+      <FeaturedItems />
     </div>
   );
 };

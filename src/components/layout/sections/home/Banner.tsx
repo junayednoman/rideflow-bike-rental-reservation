@@ -1,6 +1,6 @@
 import bikeVideo from "@/assets/images/bike-video.mp4";
 import bannerImg from "@/assets/images/banner.jpg";
-import { Button, DatePicker, Input } from "antd";
+import { DatePicker, Input } from "antd";
 import RButtonWhite from "@/components/ui/RButtonWhite";
 import RButtonSmall from "@/components/ui/RButtonSmall";
 const { RangePicker } = DatePicker;
