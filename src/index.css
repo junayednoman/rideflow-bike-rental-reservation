@@ -79,3 +79,7 @@ h6 {
   background-color: #fff;
   color: #1b263b;
 }
+
+.howItWorks{
+  background-image: url(./bike.jpg);
+}
