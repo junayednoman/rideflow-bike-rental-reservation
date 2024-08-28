@@ -1,7 +1,13 @@
+import Banner from "@/components/layout/sections/about/Banner";
+import Mission from "@/components/layout/sections/about/Mission";
+import Team from "@/components/layout/sections/about/Team";
+
 const About = () => {
   return (
     <div>
-      <h1>This is, About component!</h1>
+      <Banner />
+      <Mission />
+      <Team />
     </div>
   );
 };

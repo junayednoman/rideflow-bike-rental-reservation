@@ -1,5 +1,5 @@
 import bikeVideo from "@/assets/images/bike-video.mp4";
-import bannerImg from "@/assets/images/banner.jpg";
+import bannerImg from "@/../public/testi.webp";
 import { DatePicker, Input } from "antd";
 import RButtonWhite from "@/components/ui/RButtonWhite";
 import RButtonSmall from "@/components/ui/RButtonSmall";
@@ -27,9 +27,9 @@ const Banner = () => {
       <div className="absolute h-full w-full bg-primaryColor bg-opacity-20"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-white md:py-0 pt-32">
-        <h1 className="lg:text-[90px] md:text-7xl text-[42px] leading-[60px] font-bold">
-          Unlock Your Next Adventure
+      <div className="relative z-10 flex flex-col justify-center items-center h-full text-white md:py-0 pt-32 xl:max-w-[1350px] lg:max-w-5xl md:max-w-[768px] sm:max-w-[640px] xl:px-4 md:mx-auto lg:px-6 sm:mx-auto sm:px-4 px-3">
+        <h1 className="xl:text-[80px] xl:leading-[120px] md:text-6xl text-[42px] md:leading-[80px] font-bold">
+          Find the Perfect Bike for Your Next Adventure Today
         </h1>
         <p className="md:text-xl md:mt-8 md:mb-12 my-6">
           Rent a bike in minutes and explore the city with ease. Simple, fast,

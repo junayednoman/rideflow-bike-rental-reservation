@@ -9,7 +9,7 @@ const Footer = () => {
           <ul className="flex items-center justify-center gap-6">
             <li>
               <a
-                className="text-primaryColor p-2 rounded-full bg-white flex items-center justify-center"
+                className="text-primaryColor p-2 rounded-full bg-white hover:bg-accentColor hover:text-white duration-200 flex items-center justify-center"
                 href="#"
               >
                 <Facebook />
@@ -17,7 +17,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                className="text-primaryColor p-2 rounded-full bg-white flex items-center justify-center"
+                className="text-primaryColor p-2 rounded-full bg-white hover:bg-accentColor hover:text-white duration-200 flex items-center justify-center"
                 href="#"
               >
                 <Instagram />
@@ -25,7 +25,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                className="text-primaryColor p-2 rounded-full bg-white flex items-center justify-center"
+                className="text-primaryColor p-2 rounded-full bg-white hover:bg-accentColor hover:text-white duration-200 flex items-center justify-center"
                 href="#"
               >
                 <Linkedin />
@@ -33,7 +33,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                className="text-primaryColor p-2 rounded-full bg-white flex items-center justify-center"
+                className="text-primaryColor p-2 rounded-full bg-white hover:bg-accentColor hover:text-white duration-200 flex items-center justify-center"
                 href="#"
               >
                 <Youtube />
@@ -41,7 +41,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                className="text-primaryColor p-2 rounded-full bg-white flex items-center justify-center"
+                className="text-primaryColor p-2 rounded-full bg-white hover:bg-accentColor hover:text-white duration-200 flex items-center justify-center"
                 href="#"
               >
                 <Twitter />
@@ -49,19 +49,19 @@ const Footer = () => {
             </li>
           </ul>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 my-10 text-sm">
-            <a className="hover:underline" href="#">
+            <a className="hover:underline hover:text-accentColor duration-200" href="#">
               Home
             </a>
-            <a className="hover:underline" href="#">
+            <a className="hover:underline hover:text-accentColor duration-200" href="#">
               About
             </a>
-            <a className="hover:underline" href="#">
+            <a className="hover:underline hover:text-accentColor duration-200" href="#">
               Privacy Policy
             </a>
-            <a className="hover:underline" href="#">
+            <a className="hover:underline hover:text-accentColor duration-200" href="#">
               Terms of Service
             </a>
-            <a className="hover:underline" href="#">
+            <a className="hover:underline hover:text-accentColor duration-200" href="#">
               Contact Us
             </a>
           </div>

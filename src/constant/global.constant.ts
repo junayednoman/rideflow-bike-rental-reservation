@@ -44,8 +44,6 @@ export const productItems = [
   },
 ];
 
-
-
 export const testimonials = [
   {
     text: "Renting a bike from this platform was a seamless experience! The bikes are well-maintained, and the rental process is straightforward. I used the service for a weekend getaway, and it exceeded my expectations. The customer support was also very responsive, helping me with all my queries. I highly recommend this service to anyone looking for a convenient and affordable bike rental solution.",
@@ -74,3 +72,23 @@ export const testimonials = [
   },
 ];
 
+export const teams = [
+  {
+    image:
+      "https://img.freepik.com/premium-photo/man-suit-with-his-arms-crossed_1109459-2268.jpg?uid=R110269680&ga=GA1.1.1274571054.1719930293&semt=ais_hybrid",
+    name: "Alice Johnson",
+    designation: "Founder & CEO",
+  },
+  {
+    image:
+      "https://img.freepik.com/premium-photo/banner-lead-generation_1096167-133209.jpg?uid=R110269680&ga=GA1.1.1274571054.1719930293&semt=ais_hybrid",
+    name: "Michael Smith",
+    designation: "Chief Operating Officer",
+  },
+  {
+    image:
+      "https://img.freepik.com/premium-photo/banner-lead-generation_1139417-135284.jpg?uid=R110269680&ga=GA1.1.1274571054.1719930293&semt=ais_hybrid",
+    name: "Sophia Davis",
+    designation: "Marketing Manager",
+  },
+];
