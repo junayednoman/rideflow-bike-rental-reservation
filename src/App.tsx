@@ -1,4 +1,5 @@
 import Banner from "./components/layout/sections/home/Banner";
+import Contact from "./components/layout/sections/home/Contact";
 import FeaturedItems from "./components/layout/sections/home/FeaturedItems";
 import HowItWorks from "./components/layout/sections/home/HowItWorks";
 import Promo from "./components/layout/sections/home/Promo";
@@ -13,6 +14,7 @@ const App = () => {
       <Testimonial />
       <WhyChooseUs />
       <HowItWorks />
+      <Contact />
     </div>
   );
 };
