@@ -4,6 +4,7 @@ import Dashboard from "@/Dashboard";
 import About from "@/pages/About";
 import Profile from "@/pages/dashboard/Profile";
 import Login from "@/pages/Login";
+import SignUp from "@/pages/SignUp";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -19,10 +20,6 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
-      {
-        path: "login",
-        element: <Login />,
-      },
     ],
   },
   {
@@ -34,6 +31,14 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "sign-up",
+    element: <SignUp />,
   },
 ]);
 

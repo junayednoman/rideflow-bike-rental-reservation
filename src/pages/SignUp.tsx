@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
 import RSectionTitle from "@/components/ui/RSectionTitle";
 
-const Login = () => {
+const SignUp = () => {
   const handleFormSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
   };
@@ -16,28 +16,38 @@ const Login = () => {
     <div className="md:py-24 py-16">
       <RContainer>
         <div className="md:w-[600px] mx-auto">
-          <RSectionTitle heading="Login Now" subHeading="Welcome Back" />
+        <RSectionTitle heading="Join Us Today" subHeading="start your adventure" />
           <RForm
             resolver={zodResolver(signValidationSchema)}
             handleFormSubmit={handleFormSubmit}
           >
+            <RInput label="Name" name="name" placeholder="enter your name" />
             <RInput label="Email" name="email" placeholder="enter your email" />
+            <RInput
+              label="Phone"
+              name="phone"
+              placeholder="enter your phone number"
+            />
             <RInput
               label="Password"
               name="password"
               placeholder="enter a password"
             />
-
+            <RInput
+              label="Address"
+              name="address"
+              placeholder="enter your address"
+            />
             <RButtonSmall type="submit">Submit</RButtonSmall>
           </RForm>
           <div className="mt-6">
             <p>
-              Do not have any account?{" "}
+              Already have an account?{" "}
               <Link
                 className="underline font-medium hover:text-accentColor duration-200"
-                to={"/sign-up"}
+                to={"/login"}
               >
-                Sign Up
+                Login
               </Link>
             </p>
           </div>
@@ -47,4 +57,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
