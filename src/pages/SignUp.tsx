@@ -7,17 +7,41 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
 import RSectionTitle from "@/components/ui/RSectionTitle";
+import { useSignUpMutation } from "@/redux/api/auth/authApi";
+import handleMutation from "@/utils/handleMutation";
+const signUpDefaultValues = {
+  name: "John Smith",
+  email: "smidth@edxdyample.com",
+  password: "user1",
+  phone: "1234567890",
+  address: "123 Main St, Anytown",
+};
 
 const SignUp = () => {
-  const handleFormSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+  const [signUp] = useSignUpMutation();
+
+  const handleFormSubmit: SubmitHandler<FieldValues> = async (data) => {
+    handleMutation(data, signUp, "User is being created...");
+    // const loadingToast = toast.loading("User is being created...");
+    // try {
+    //   const res = await signUp(data).unwrap();
+    //   console.log("res, ", res);
+    //   toast.success(res.message, { id: loadingToast });
+    // } catch (error: any) {
+    //   toast.error(error.data.message, { id: loadingToast });
+    //   console.log("error, ", error);
+    // }
   };
   return (
     <div className="md:py-24 py-16">
       <RContainer>
         <div className="md:w-[600px] mx-auto">
-        <RSectionTitle heading="Join Us Today" subHeading="start your adventure" />
+          <RSectionTitle
+            heading="Join Us Today"
+            subHeading="start your adventure"
+          />
           <RForm
+            defaultValues={signUpDefaultValues}
             resolver={zodResolver(signValidationSchema)}
             handleFormSubmit={handleFormSubmit}
           >

@@ -59,7 +59,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="col-span-1 mt-1 ml-auto lg:block hidden">
-            <RButtonSmallWhite link="#">Login</RButtonSmallWhite>
+            <RButtonSmallWhite link="/login">Login</RButtonSmallWhite>
           </div>
           <div className="col-span-1 ml-auto lg:hidden block">
             <Menu
