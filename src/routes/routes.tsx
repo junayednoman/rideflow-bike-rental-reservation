@@ -1,11 +1,14 @@
 import App from "@/App";
 import MainLayout from "@/components/layout/MainLayout";
+import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import Dashboard from "@/Dashboard";
 import About from "@/pages/About";
-import Profile from "@/pages/dashboard/Profile";
 import Login from "@/pages/Login";
 import SignUp from "@/pages/SignUp";
+import SignUpSuccess from "@/pages/SignUpSuccess";
 import { createBrowserRouter } from "react-router-dom";
+import { adminRoutes } from "./admin.routes";
+import { userRoutes } from "./user.routes";
 
 const router = createBrowserRouter([
   {
@@ -23,14 +26,22 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
-    children: [
-      {
-        path: "profile",
-        element: <Profile />,
-      },
-    ],
+    path: "/dashboard/user",
+    element: (
+      <ProtectedRoute role="user">
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+    children: userRoutes,
+  },
+  {
+    path: "/dashboard/admin",
+    element: (
+      <ProtectedRoute role="admin">
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+    children: adminRoutes,
   },
   {
     path: "login",
@@ -39,6 +50,14 @@ const router = createBrowserRouter([
   {
     path: "sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "sign-up",
+    element: <SignUp />,
+  },
+  {
+    path: "sign-up-success",
+    element: <SignUpSuccess />,
   },
 ]);
 

@@ -80,10 +80,39 @@ h6 {
   color: #1b263b;
 }
 
-.howItWorks{
+.howItWorks {
   background-image: url(./bike.jpg);
 }
 
-.team{
+.team {
   background-image: url(./testi.webp);
+}
+.ant-layout-sider-children {
+  background-color: #fff;
+  box-shadow: 0px 1px 53px -55px rgba(0, 0, 0, 0.68);
+}
+.dashboardHeader {
+  background-color: #fff;
+  box-shadow: 0px 2px 53px -30px rgba(0, 0, 0, 0.68);
+}
+
+.ant-menu-item {
+  background-color: transparent;
+  color: #1b263b !important;
+  border-radius: 0 !important;
+}
+
+.ant-menu-item-selected {
+  background-color: #f39c12 !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+}
+
+.ant-menu-item-selected svg,
+.ant-menu-item-selected a {
+  color: white !important;
+}
+
+.profileSidebar {
+  background-image: url(../public//testi.webp);
 }

@@ -5,10 +5,19 @@ type RButtonProps = {
   link?: string;
   type?: "submit";
   wFull?: boolean;
+  onClick?: any;
 };
-const RButtonSmall = ({ children, size, link, type, wFull }: RButtonProps) => {
+const RButtonSmall = ({
+  children,
+  size,
+  link,
+  type,
+  wFull,
+  onClick,
+}: RButtonProps) => {
   return (
     <Button
+      onClick={onClick}
       htmlType={type}
       type="link"
       href={link}
