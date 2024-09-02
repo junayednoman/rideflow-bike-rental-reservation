@@ -92,3 +92,19 @@ export const teams = [
     designation: "Marketing Manager",
   },
 ];
+
+
+export const tableData = [
+  {
+    key: "1",
+    name: "Mike",
+    age: 32,
+    address: "10 Downing Street",
+  },
+  {
+    key: "2",
+    name: "John",
+    age: 42,
+    address: "10 Downing Street",
+  },
+];

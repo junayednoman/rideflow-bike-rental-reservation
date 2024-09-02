@@ -12,7 +12,7 @@ const DashboardSectionTitle = ({
 }: TSectionTitleProps) => {
   return (
     <div
-      className={`mb-6 space-y-2 capitalize  ${align || "text-center"}`}
+      className={`mb-6 space-y-2 capitalize  ${align || "text-left"}`}
       style={{ color: color }}
     >
       <p className="text-accentColor uppercase text-sm">{subHeading}</p>

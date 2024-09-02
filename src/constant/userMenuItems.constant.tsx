@@ -1,5 +1,5 @@
-import { UploadOutlined, UserOutlined } from "@ant-design/icons";
-import { Bike } from "lucide-react";
+import { UserOutlined } from "@ant-design/icons";
+import { Bike, ListTodo } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export const userMenuItems = [
@@ -15,7 +15,7 @@ export const userMenuItems = [
   },
   {
     key: "3",
-    icon: <UploadOutlined />,
-    label: "nav 3",
+    icon: <ListTodo size={16} />,
+    label: <NavLink to={"/dashboard/user/my-rentals"}>My Rentals</NavLink>,
   },
 ];

@@ -8,12 +8,13 @@ import { useAppDispatch } from "@/redux/hooks";
 import handleMutation from "@/utils/handleMutation";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RSectionTitle from "@/components/ui/RSectionTitle";
+import { TJwtPayload, TResponse, TUser } from "@/types";
 
 const loginDefaultValues = {
-  email: "smidth@edxdyample.com",
-  password: "user1",
+  email: "junayednoman05@gmail.com",
+  password: "noman05",
 };
 
 const Login = () => {
@@ -21,9 +22,11 @@ const Login = () => {
   const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
 
-  const onSuccess = (res) => {
+  const onSuccess = (res: TResponse<TUser>) => {
     const token = res.token;
-    const { email, role } = jwtDecode(token);
+    console.log(res);
+    const { email, role } = jwtDecode(token!) as TJwtPayload;
+    console.log(res);
     const user = { email, role };
     const payload = { token, user };
     dispatch(addUser(payload));
@@ -49,6 +52,17 @@ const Login = () => {
             />
             <RButtonSmall type="submit">Login</RButtonSmall>
           </RForm>
+          <div className="mt-6">
+            <p>
+              Don not have an account?{" "}
+              <Link
+                className="underline font-medium hover:text-accentColor duration-200"
+                to={"/sign-up"}
+              >
+                Sign Up
+              </Link>
+            </p>
+          </div>
         </div>
       </RContainer>
     </div>

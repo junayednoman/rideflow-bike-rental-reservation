@@ -116,3 +116,17 @@ h6 {
 .profileSidebar {
   background-image: url(../public//testi.webp);
 }
+
+.ant-tabs-tab {
+  font-size: 16px !important;
+}
+.ant-tabs-tab:hover {
+  color: #f39c12 !important;
+}
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #f39c12 !important;
+}
+
+.ant-tabs-ink-bar {
+  background-color: #f39c12 !important;
+}

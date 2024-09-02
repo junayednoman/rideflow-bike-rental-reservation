@@ -4,18 +4,23 @@ const handleMutation = async (
   data: any,
   mutationFunc: any,
   loadingTxt: string,
-  onSuccess?: any
+  onSuccess?: any,
+  onFailure?: any
 ) => {
   const loadingToast = toast.loading(loadingTxt);
   try {
     const res = await mutationFunc(data).unwrap();
     console.log("res, ", res);
-    toast.success(res.message, { id: loadingToast });
+    toast.success(res.message || "Success!", { id: loadingToast });
     if (res.success) {
       onSuccess(res);
+    } else {
+      onFailure(res);
     }
   } catch (error: any) {
-    toast.error(error.data.message, { id: loadingToast });
+    toast.error(error.data.message || "Something went wrong!", {
+      id: loadingToast,
+    });
     console.log("error, ", error);
   }
 };

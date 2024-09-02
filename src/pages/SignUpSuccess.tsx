@@ -9,10 +9,10 @@ const SignUpSuccess = () => {
           Account Created Successfully!
         </h1>
         <p className="mb-5">
-          Your account has been set up, and you're ready to start your biking
-          adventure.
+          Please, login with the credentials to continue with the next
+          adventures
         </p>
-        <RButtonSmall link="/dashboard/profile">Go To Profile</RButtonSmall>
+        <RButtonSmall link={`/login`}>Go To Login</RButtonSmall>
       </div>
     </RContainer>
   );

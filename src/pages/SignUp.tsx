@@ -9,12 +9,16 @@ import RSectionTitle from "@/components/ui/RSectionTitle";
 import { useSignUpMutation } from "@/redux/api/auth/authApi";
 import handleMutation from "@/utils/handleMutation";
 import { signValidationSchema } from "@/validation";
+import { useAppDispatch } from "@/redux/hooks";
+import { logOut } from "@/redux/features/authSlice";
 
 const SignUp = () => {
   const [signUp] = useSignUpMutation();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onSuccess = () => {
+    dispatch(logOut());
     return navigate("/sign-up-success", { replace: true });
   };
   const handleFormSubmit: SubmitHandler<FieldValues> = async (data) => {

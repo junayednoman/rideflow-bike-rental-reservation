@@ -1,21 +1,8 @@
 import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
+import { tableData } from "@/constant";
 import { Table, Tooltip } from "antd";
 import { Eye } from "lucide-react";
 import { Link } from "react-router-dom";
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    age: 32,
-    address: "10 Downing Street",
-  },
-  {
-    key: "2",
-    name: "John",
-    age: 42,
-    address: "10 Downing Street",
-  },
-];
 
 const Bikes = () => {
   const columns = [
@@ -59,7 +46,7 @@ const Bikes = () => {
   return (
     <div>
       <DashboardSectionTitle heading="All Bikes" align="left" />
-      <Table dataSource={dataSource} columns={columns} />
+      <Table dataSource={tableData} columns={columns} />
     </div>
   );
 };
