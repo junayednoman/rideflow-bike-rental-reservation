@@ -3,7 +3,7 @@ import { RootState } from "../store";
 export const baseApi = createApi({
 
   reducerPath: "baseApi",
-  tagTypes: ['user'],
+  tagTypes: ['user', 'bike'],
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:5000/api",
     credentials: "include",

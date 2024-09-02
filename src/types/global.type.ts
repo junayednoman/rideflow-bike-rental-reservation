@@ -31,3 +31,8 @@ export type TJwtPayload = {
   role: "user" | "admin";
   email: string;
 } & JwtPayload;
+
+export type TQueryParams = {
+  name: string;
+  value: string;
+};

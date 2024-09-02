@@ -5,6 +5,10 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import RInput from "./form/RInput";
 import React, { Dispatch } from "react";
 import RTextArea from "./form/RTextArea";
+import handleMutation from "@/utils/handleMutation";
+import { useCreateBikeMutation } from "@/redux/api/bikeApi";
+import { bikeValidationSchema } from "@/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 type TModalProps = {
   isModalOpen: boolean;
@@ -12,13 +16,24 @@ type TModalProps = {
 };
 
 const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
+  const [createBike] = useCreateBikeMutation();
+
   const handleModalCancel = () => {
     setIsModalOpen(false);
   };
 
   // handle book a bike
   const handleBook: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    const onSuccess = () => {
+      setIsModalOpen(false);
+    };
+    const bikeData = {
+      ...data,
+      cc: Number(data.cc),
+      year: Number(data.year),
+      pricePerHour: Number(data.pricePerHour),
+    };
+    handleMutation(bikeData, createBike, "Bike is being created...", onSuccess);
   };
 
   return (
@@ -32,7 +47,7 @@ const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
       >
         <div>
           <RForm
-            //   resolver={zodResolver(schema)}
+            resolver={zodResolver(bikeValidationSchema)}
             handleFormSubmit={handleBook}
           >
             <Row gutter={15}>
@@ -50,7 +65,7 @@ const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
               />
               <RInput
                 colSpanLg={12}
-                name="price"
+                name="pricePerHour"
                 label="Price(hourly)"
                 placeholder="Enter rent price"
               />
@@ -73,10 +88,9 @@ const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
                 placeholder="Enter bike year"
               />
               <RInput
-                colSpanLg={12}
-                name="engine"
-                label="Engine"
-                placeholder="Enter bike engine"
+                name="cc"
+                label="Engine(CC)"
+                placeholder="Enter bike engine capacity"
               />
             </Row>
             <RTextArea
