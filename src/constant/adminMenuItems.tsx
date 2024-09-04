@@ -1,4 +1,4 @@
-import { Bike, ListOrdered, Puzzle, User } from "lucide-react";
+import { Bike, ListOrdered, Puzzle, User, Users } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export const adminMenuItems = [
@@ -15,12 +15,17 @@ export const adminMenuItems = [
     ),
   },
   {
+    key: "4",
+    icon: <Users size={16} />,
+    label: <NavLink to={"/dashboard/admin/users"}>Users</NavLink>,
+  },
+  {
     key: "3",
     icon: <ListOrdered size={16} />,
     label: <NavLink to={"/dashboard/admin/rentals"}>Rentals</NavLink>,
   },
   {
-    key: "4",
+    key: "5",
     icon: <Puzzle size={16} />,
     label: <NavLink to={"/dashboard/admin/coupons"}>Coupons</NavLink>,
   },

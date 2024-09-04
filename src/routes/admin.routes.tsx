@@ -3,6 +3,7 @@ import Coupons from "@/pages/dashboard/Coupons";
 import Profile from "@/pages/dashboard/Profile";
 import Rentals from "@/pages/dashboard/Rentals";
 import UserManagement from "@/pages/dashboard/UserManagement";
+import Users from "@/pages/dashboard/Users";
 
 export const adminRoutes = [
   {
@@ -10,19 +11,23 @@ export const adminRoutes = [
     element: <Profile />,
   },
   {
-    path: 'manage-bikes',
+    path: "manage-bikes",
     element: <BikesManagement />,
   },
   {
-    path: 'manage-users',
+    path: "manage-users",
     element: <UserManagement />,
   },
   {
-    path: 'rentals',
+    path: "rentals",
     element: <Rentals />,
   },
   {
-    path: 'coupons',
+    path: "users",
+    element: <Users />,
+  },
+  {
+    path: "coupons",
     element: <Coupons />,
   },
 ];
