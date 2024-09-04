@@ -9,6 +9,8 @@ import handleMutation from "@/utils/handleMutation";
 import { useCreateBikeMutation } from "@/redux/api/bikeApi";
 import { bikeValidationSchema } from "@/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import RSelect from "./form/RSelect";
+import { ccOptions } from "@/constant";
 
 type TModalProps = {
   isModalOpen: boolean;
@@ -22,8 +24,8 @@ const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
     setIsModalOpen(false);
   };
 
-  // handle book a bike
-  const handleBook: SubmitHandler<FieldValues> = (data) => {
+  // handle create a bike
+  const handleCreateBike: SubmitHandler<FieldValues> = (data) => {
     const onSuccess = () => {
       setIsModalOpen(false);
     };
@@ -48,7 +50,7 @@ const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
         <div>
           <RForm
             resolver={zodResolver(bikeValidationSchema)}
-            handleFormSubmit={handleBook}
+            handleFormSubmit={handleCreateBike}
           >
             <Row gutter={15}>
               <RInput
@@ -87,7 +89,8 @@ const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
                 label="Year"
                 placeholder="Enter bike year"
               />
-              <RInput
+              <RSelect
+                options={ccOptions}
                 name="cc"
                 label="Engine(CC)"
                 placeholder="Enter bike engine capacity"

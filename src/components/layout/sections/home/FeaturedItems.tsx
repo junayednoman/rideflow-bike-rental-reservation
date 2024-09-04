@@ -19,7 +19,7 @@ const FeaturedItems = () => {
           />
           {isFetching ? (
             <RSpinner />
-          ) : data.data.result.length ? (
+          ) : data?.data?.result?.length ? (
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 md:gap-7 gap-5">
               {data?.data?.result?.map((item: TBike, idx: number) => (
                 <div key={idx}>

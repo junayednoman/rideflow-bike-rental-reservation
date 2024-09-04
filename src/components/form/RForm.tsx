@@ -14,6 +14,7 @@ type TFormConfig = {
 type TFormProps = {
   children: ReactNode;
   handleFormSubmit: SubmitHandler<FieldValues>;
+  reset?: boolean;
 } & TFormConfig;
 
 const RForm = ({
@@ -30,6 +31,7 @@ const RForm = ({
     formConfig["resolver"] = resolver;
   }
   const methods = useForm(formConfig);
+
   return (
     <FormProvider {...methods}>
       <Form

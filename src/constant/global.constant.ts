@@ -93,7 +93,6 @@ export const teams = [
   },
 ];
 
-
 export const tableData = [
   {
     key: "1",
@@ -108,3 +107,10 @@ export const tableData = [
     address: "10 Downing Street",
   },
 ];
+
+const ccs = [100, 125, 150, 180, 200, 250, 300, 350, 400, 450, 500, 600, 650];
+
+export const ccOptions = ccs.map((item) => ({
+  label: `${item}cc`,
+  value: String(item),
+}));

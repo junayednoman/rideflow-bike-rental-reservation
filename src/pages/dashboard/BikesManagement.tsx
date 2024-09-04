@@ -2,10 +2,12 @@ import CreateBikeModal from "@/components/CreateBikeModal";
 import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
 import RButtonSmall from "@/components/ui/RButtonSmall";
 import UpdateBikeModal from "@/components/UpdateBikeModal";
+
 import {
   useDeleteBikeMutation,
   useGetAllBikesQuery,
 } from "@/redux/api/bikeApi";
+
 import { TBike, TQueryParams } from "@/types";
 import handleMutation from "@/utils/handleMutation";
 import { Popconfirm, Table, TableProps, Tooltip } from "antd";
@@ -13,6 +15,10 @@ import { Edit, Trash } from "lucide-react";
 import { useState } from "react";
 
 const BikesManagement = () => {
+  // bike id for getting single bike
+  const [bikeId, setBikeId] = useState("");
+
+  
   // set query params
   const [params, setParams] = useState<TQueryParams[] | []>([]);
 
@@ -28,7 +34,8 @@ const BikesManagement = () => {
 
   // manage update bike modal
   const [isUpdateBikeModalOpen, setIsUpdateBikeModalOpen] = useState(false);
-  const showUpdateBikeModal = () => {
+  const showUpdateBikeModal = (bikeId: string) => {
+    setBikeId(bikeId);
     setIsUpdateBikeModalOpen(true);
   };
 
@@ -106,7 +113,7 @@ const BikesManagement = () => {
         <div className="flex items-center gap-3">
           <Tooltip title="Update bike">
             <Edit
-              onClick={showUpdateBikeModal}
+              onClick={() => showUpdateBikeModal(key)}
               size={20}
               className="cursor-pointer text-accentColor"
             />
@@ -120,11 +127,7 @@ const BikesManagement = () => {
             cancelText="No"
           >
             <Tooltip title="Delete bike">
-              <Trash
-                // onClick={() => setDeleteBikeId(key)}
-                size={20}
-                className="cursor-pointer text-red-500"
-              />
+              <Trash size={20} className="cursor-pointer text-red-500" />
             </Tooltip>
           </Popconfirm>
         </div>
@@ -183,6 +186,7 @@ const BikesManagement = () => {
         setIsModalOpen={setIsCreateBikeModalOpen}
       />
       <UpdateBikeModal
+        bikeId={bikeId}
         isModalOpen={isUpdateBikeModalOpen}
         setIsModalOpen={setIsUpdateBikeModalOpen}
       />
