@@ -136,6 +136,7 @@ const BikesManagement = () => {
     },
   ];
 
+  // handle filtering
   const onChange: TableProps<TBike>["onChange"] = (
     fpagination,
     filters,

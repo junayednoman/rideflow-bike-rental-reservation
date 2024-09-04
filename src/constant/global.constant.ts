@@ -108,7 +108,7 @@ export const tableData = [
   },
 ];
 
-const ccs = [100, 125, 150, 180, 200, 250, 300, 350, 400, 450, 500, 600, 650];
+export const ccs = [100, 125, 150, 180, 200, 250, 300, 350, 400, 450, 500, 600, 650];
 
 export const ccOptions = ccs.map((item) => ({
   label: `${item}cc`,
