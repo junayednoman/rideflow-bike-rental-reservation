@@ -1,27 +1,27 @@
-import RDatePicker from "@/components/form/RDatePicker";
 import RForm from "@/components/form/RForm";
 import RTimePicker from "@/components/form/RTimePicker";
 import RButtonSmall from "@/components/ui/RButtonSmall";
 import RNoData from "@/components/ui/RNoData";
 import RSpinner from "@/components/ui/RSpinner";
 import RStarRating from "@/components/ui/RStarRating";
+import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
 import { useGetSingleBikeQuery } from "@/redux/api/bikeApi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Modal } from "antd";
 import { useState } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { z } from "zod";
 const schema = z.object({
-  startDate: z.unknown().refine((value) => value, {
-    message: "Start Date is required",
-  }),
   startTime: z.unknown().refine((value) => value, {
     message: "Start Time is required",
   }),
 });
 
 const BikeDetail = () => {
+  const navigate = useNavigate();
+  const { data: profileData } = useGetMyProfileQuery(undefined);
+
   const { bikeId } = useParams();
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
@@ -48,15 +48,17 @@ const BikeDetail = () => {
     year,
     description,
     isAvailable,
+    _id,
   } = bikeData;
 
   // handle book a bike
   const handleBook: SubmitHandler<FieldValues> = (data) => {
     const bookingData = {
-      startDate: data?.startDate?.format("D, MMMM, YYYY"),
       startTime: data?.startTime?.format("HH:mm"),
+      userId: profileData?.data?._id,
+      bikeId: _id,
     };
-    console.log(bookingData);
+    navigate("/dashboard/user/payment", { state: { bookingData, bikeData } });
   };
 
   return (
@@ -116,7 +118,13 @@ const BikeDetail = () => {
                 {isAvailable ? "Available" : "Unavailable"}
               </p>
             </div>
-            <RButtonSmall onClick={showBookingModal}>Book now</RButtonSmall>
+            <RButtonSmall
+              tooltipTxt={isAvailable ? "" : "This bike is unavailable"}
+              onClick={showBookingModal}
+              disabled={!isAvailable}
+            >
+              Book now
+            </RButtonSmall>
           </div>
         </div>
       ) : (
@@ -132,11 +140,6 @@ const BikeDetail = () => {
         >
           <div>
             <RForm resolver={zodResolver(schema)} handleFormSubmit={handleBook}>
-              <RDatePicker
-                label="Start Date*"
-                name="startDate"
-                placeholder=""
-              />
               <RTimePicker
                 label="Start Time*"
                 name="startTime"

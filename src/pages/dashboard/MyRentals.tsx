@@ -1,19 +1,60 @@
 import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
 import RButtonSmall from "@/components/ui/RButtonSmall";
-import { tableData } from "@/constant";
+import { useGetRentalsQuery } from "@/redux/api/rentalApi";
+import { TBike, TRental } from "@/types";
 import { Table, Tabs, TabsProps } from "antd";
 
+export type TTableProps = {
+  startTime: string;
+  returnTime: string;
+  totalCost: number;
+  _id: string;
+  bikeId: TBike;
+};
+
 const MyRentals = () => {
+  const { data, isFetching } = useGetRentalsQuery(undefined);
+
+  const paidData = data?.data?.result?.filter(
+    (item: TRental) => item.isPaid === true
+  );
+  const unPaidData = data?.data?.result?.filter(
+    (item: TRental) => item.isPaid === true
+  );
+
+  const paidRentalItems = paidData?.map(
+    ({ startTime, returnTime, totalCost, _id, bikeId }: TTableProps) => ({
+      key: _id,
+      name: bikeId.name,
+      startTime,
+      returnTime,
+      totalCost,
+    })
+  );
+
+  const unPaidRentalItems = unPaidData?.map(
+    ({ startTime, returnTime, totalCost, _id, bikeId }: TTableProps) => ({
+      key: _id,
+      name: bikeId.name,
+      startTime,
+      returnTime,
+      totalCost,
+    })
+  );
+
+  // tab props
   const items: TabsProps["items"] = [
     {
       key: "1",
-      label: "Paid",
-      children: <PaidRentals />,
+      label: "Unpaid",
+      children: (
+        <UnPaidRentals loading={isFetching} options={unPaidRentalItems} />
+      ),
     },
     {
       key: "2",
-      label: "Unpaid",
-      children: <UnPaidRentals />,
+      label: "Paid",
+      children: <PaidRentals loading={isFetching} options={paidRentalItems} />,
     },
   ];
   return (
@@ -27,7 +68,13 @@ const MyRentals = () => {
 export default MyRentals;
 
 // paid rental table
-const PaidRentals = () => {
+const PaidRentals = ({
+  options,
+  loading,
+}: {
+  options: TTableProps[];
+  loading: boolean;
+}) => {
   const columns = [
     {
       title: "Name",
@@ -36,29 +83,35 @@ const PaidRentals = () => {
     },
     {
       title: "Start Time",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "startTime",
+      key: "startTime",
     },
     {
       title: "Return Time",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "endTime",
+      key: "endTime",
     },
     {
       title: "Total Cost",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "totalCost",
+      key: "totalCost",
     },
   ];
   return (
     <div>
-      <Table dataSource={tableData} columns={columns} />
+      <Table loading={loading} dataSource={options} columns={columns} />
     </div>
   );
 };
 
 // unpaid rental table
-const UnPaidRentals = () => {
+const UnPaidRentals = ({
+  options,
+  loading,
+}: {
+  options: TTableProps[];
+  loading: boolean;
+}) => {
   const columns = [
     {
       title: "Name",
@@ -67,18 +120,20 @@ const UnPaidRentals = () => {
     },
     {
       title: "Start Time",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "startTime",
+      key: "startTime",
     },
     {
       title: "Return Time",
-      dataIndex: "address",
-      key: "address",
+      render: ({ returnTime }: { returnTime: string }) => (
+        <p>{returnTime === null ? "Not returned yet" : returnTime}</p>
+      ),
+      key: "returnTime",
     },
     {
       title: "Total Cost",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "totalCost",
+      key: "totalCost",
     },
     {
       title: "Payment",
@@ -88,7 +143,7 @@ const UnPaidRentals = () => {
   ];
   return (
     <div>
-      <Table dataSource={tableData} columns={columns} />
+      <Table loading={loading} dataSource={options} columns={columns} />
     </div>
   );
 };
