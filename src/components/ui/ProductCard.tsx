@@ -1,5 +1,6 @@
 import { Eye, Heart, SlidersHorizontal } from "lucide-react";
 import RButtonSmall from "./RButtonSmall";
+import { useNavigate } from "react-router-dom";
 
 type TProductCard = {
   details: {
@@ -10,7 +11,14 @@ type TProductCard = {
   };
 };
 const ProductCard = ({ details }: TProductCard) => {
-  const { name, brand, image } = details;
+  const navigate = useNavigate();
+  const handleGoToBikeDetails = (_id: string) => {
+    return navigate(`/dashboard/user/bikes/${_id}`, {
+      replace: true,
+      state: { targetUrl: `/dashboard/user/bikes/${_id}`, message: "Please login to visit the product details page" },
+    });
+  };
+  const { name, brand, image, _id } = details;
   return (
     <div className="text-center cursor-pointer rCard mb-24">
       <div>
@@ -40,7 +48,9 @@ const ProductCard = ({ details }: TProductCard) => {
             <span className="text-[#f7ba59] text-sm font-medium">{brand}</span>
           </div>
           <div className="absolute top-0 cardBtn duration-[400ms] z-0 opacity-0 w-full">
-            <RButtonSmall>View Details</RButtonSmall>
+            <RButtonSmall onClick={() => handleGoToBikeDetails(_id)}>
+              View Details
+            </RButtonSmall>
           </div>
         </div>
       </div>

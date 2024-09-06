@@ -1,11 +1,35 @@
 import CalculateRentalCostModel from "@/components/CalculateRentalCostModel";
 import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
 import RButtonSmall from "@/components/ui/RButtonSmall";
-import { tableData } from "@/constant";
+import { useGetRentalsQuery } from "@/redux/api/rentalApi";
+import { TBike, TUser } from "@/types";
 import { Table } from "antd";
 import { useState } from "react";
 
+export type TTableProps = {
+  startTime: string;
+  _id: string;
+  bikeId: TBike;
+  userId: TUser;
+};
+
 const Rentals = () => {
+  const { data, isFetching } = useGetRentalsQuery([
+    { name: "isPaid", value: false },
+    { name: "totalCost", value: 0 },
+  ]);
+
+
+  const rentalTableData = data?.data?.result?.map(
+    ({ startTime, _id, bikeId, userId }: TTableProps) => ({
+      startTime,
+      key: _id,
+      name: bikeId.name,
+      pricePerHour: bikeId.pricePerHour,
+      tenantName: userId.name,
+    })
+  );
+
   // manage cost calculation
   const [isCalculationModalOpen, setIsCalculationModalOpen] = useState(false);
   const showCalculationModal = () => {
@@ -20,13 +44,13 @@ const Rentals = () => {
     },
     {
       title: "Price(hourly)",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "pricePerHour",
+      key: "pricePerHour",
     },
     {
       title: "Tenant",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "tenantName",
+      key: "tenantName",
     },
     {
       title: "Actions",
@@ -44,7 +68,11 @@ const Rentals = () => {
       <div className="flex justify-between items-center">
         <DashboardSectionTitle heading="All Rentals" />
       </div>
-      <Table dataSource={tableData} columns={columns} />
+      <Table
+        dataSource={rentalTableData}
+        loading={isFetching}
+        columns={columns}
+      />
       <CalculateRentalCostModel
         isModalOpen={isCalculationModalOpen}
         setIsModalOpen={setIsCalculationModalOpen}

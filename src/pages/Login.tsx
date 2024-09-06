@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import handleMutation from "@/utils/handleMutation";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import RSectionTitle from "@/components/ui/RSectionTitle";
 import { TJwtPayload, TResponse, TUser } from "@/types";
 
@@ -18,6 +18,10 @@ const loginDefaultValues = {
 };
 
 const Login = () => {
+  const location = useLocation();
+  console.log(location);
+ 
+
   const navigate = useNavigate();
   const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
@@ -30,6 +34,9 @@ const Login = () => {
     const user = { email, role };
     const payload = { token, user };
     dispatch(addUser(payload));
+    if (location?.state?.targetPath) {
+      return navigate(location?.state?.targetPath, { replace: true });
+    }
     return navigate(`/dashboard/${role}`, { replace: true });
   };
   const handleForm: SubmitHandler<FieldValues> = (data) => {

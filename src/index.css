@@ -57,11 +57,11 @@ h6 {
 }
 
 .promo-1 {
-  background-image: url(./promo-1.webp);
+  background-image: url(./promo-bike.jpg);
   transition: 1s ease !important;
 }
 .promo-2 {
-  background-image: url(./promo-2.webp);
+  background-image: url(./promo-bike-2.jpg);
   transition: 2s ease !important;
 }
 .promo-1:hover {
@@ -72,7 +72,7 @@ h6 {
 }
 
 .testimonial {
-  background-image: url(./testi.webp);
+  background-image: url(./testi.jpg);
 }
 
 .chooseUsItem:hover .chooseUsIcon {
@@ -85,7 +85,7 @@ h6 {
 }
 
 .team {
-  background-image: url(./testi.webp);
+  background-image: url(./bike.jpg);
 }
 .ant-layout-sider-children {
   background-color: #fff;
@@ -129,4 +129,14 @@ h6 {
 
 .ant-tabs-ink-bar {
   background-color: #f39c12 !important;
+}
+
+.myHeader {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.9008944642310049) 0%,
+    rgba(0, 0, 0, 0.6263846603094363) 35%,
+    rgba(0, 0, 0, 0.3770849404214811) 72%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }

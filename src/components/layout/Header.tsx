@@ -1,10 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RContainer from "./RContainer";
 import RButtonSmall from "../ui/RButtonSmall";
-import { Menu } from "lucide-react";
+import {
+  CircleUserRound,
+  ListCheckIcon,
+  LogOut,
+  Menu,
+  User,
+} from "lucide-react";
 import { useState } from "react";
-import { Drawer } from "antd";
+import { Drawer, Dropdown, MenuProps } from "antd";
 import RButtonSmallWhite from "../ui/RButtonSmallWhite";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logOut, useGetCurrentUser } from "@/redux/features/authSlice";
+import { toast } from "sonner";
 const menuItems = [
   {
     label: "home",
@@ -25,6 +34,10 @@ const menuItems = [
 ];
 
 const Header = () => {
+  const user = useAppSelector(useGetCurrentUser);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -35,8 +48,58 @@ const Header = () => {
     setOpen(false);
   };
 
+  const handleLogout = () => {
+    dispatch(logOut());
+    toast.success("User logged out successfully!");
+    return navigate("/login");
+  };
+
+  // drop down options
+  const items: MenuProps["items"] = [
+    {
+      label: (
+        <div className="flex items-center gap-2">
+          <User size={14} />
+          <Link to={`/dashboard/${user?.role}`}>Profile</Link>
+        </div>
+      ),
+      key: "0",
+    },
+    {
+      label: (
+        <div className="flex items-center gap-2">
+          <ListCheckIcon size={14} />
+          <Link
+            to={
+              user?.role === "admin"
+                ? `/dashboard/admin/manage-bikes`
+                : `/dashboard/user/my-rentals`
+            }
+          >
+            {user?.role === "admin" ? "Manage Rentals" : "My Rentals"}
+          </Link>
+        </div>
+      ),
+
+      key: "1",
+    },
+    {
+      type: "divider",
+    },
+    {
+      label: (
+        <div onClick={handleLogout} className="flex items-center gap-2">
+          <LogOut size={14} />
+          <button>Log Out</button>
+        </div>
+      ),
+
+      key: "3",
+    },
+  ];
+
   return (
-    <div className="md:py-6 py-5 absolute top-0 left-0 w-full z-30">
+    <header className="md:py-6 py-5 absolute top-0 left-0 w-full z-30 myHeader">
       <RContainer>
         <div className="grid lg:grid-cols-5 grid-cols-2 gap-8 items-center justify-between">
           <div className="col-span-1">
@@ -59,7 +122,21 @@ const Header = () => {
             </ul>
           </div>
           <div className="col-span-1 mt-1 ml-auto lg:block hidden">
-            <RButtonSmallWhite link="/login">Login</RButtonSmallWhite>
+            {user ? (
+              <Dropdown
+                placement="bottomRight"
+                menu={{ items }}
+                trigger={["click"]}
+              >
+                <a className="rounded-full" onClick={(e) => e.preventDefault()}>
+                  <p className="border cursor-pointer bg-accentColor rounded-full p-3">
+                    <CircleUserRound className="text-white" size={30} />
+                  </p>
+                </a>
+              </Dropdown>
+            ) : (
+              <RButtonSmallWhite link="/login">Login</RButtonSmallWhite>
+            )}
           </div>
           <div className="col-span-1 ml-auto lg:hidden block">
             <Menu
@@ -84,7 +161,7 @@ const Header = () => {
           </div>
         </div>
       </RContainer>
-    </div>
+    </header>
   );
 };
 

@@ -13,13 +13,15 @@ export type TTableProps = {
 };
 
 const MyRentals = () => {
-  const { data, isFetching } = useGetRentalsQuery(undefined);
+  const { data, isFetching } = useGetRentalsQuery([
+    { name: "myRentals", value: true },
+  ]);
 
   const paidData = data?.data?.result?.filter(
     (item: TRental) => item.isPaid === true
   );
   const unPaidData = data?.data?.result?.filter(
-    (item: TRental) => item.isPaid === true
+    (item: TRental) => item.isPaid === false
   );
 
   const paidRentalItems = paidData?.map(

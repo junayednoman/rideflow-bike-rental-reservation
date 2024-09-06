@@ -10,6 +10,7 @@ export const rentalApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+
     getRentals: builder.query({
       providesTags: ["rental"],
       query: (args) => {

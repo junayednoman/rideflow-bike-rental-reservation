@@ -1,5 +1,5 @@
-import bikeVideo from "@/assets/images/bike-video.mp4";
-import bannerImg from "@/../public/testi.webp";
+import bikeVideo from "@/assets/images/motorbike.mp4";
+import bannerImg from "@/../public/mototr bike bg.jpg";
 import { DatePicker, Input } from "antd";
 import RButtonWhite from "@/components/ui/RButtonWhite";
 import RButtonSmall from "@/components/ui/RButtonSmall";

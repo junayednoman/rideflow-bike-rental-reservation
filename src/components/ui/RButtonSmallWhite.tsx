@@ -3,7 +3,7 @@ type RButtonProps = {
   children: string;
   size?: "large" | "middle" | "small";
   link?: string;
-  onClick: any;
+  onClick?: any;
 };
 const RButtonSmallWhite = ({ children, size, link, onClick }: RButtonProps) => {
   return (

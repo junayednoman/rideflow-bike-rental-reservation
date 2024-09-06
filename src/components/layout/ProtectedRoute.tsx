@@ -1,8 +1,10 @@
 import { logOut, useGetCurrentToken } from "@/redux/features/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { TJwtPayload } from "@/types";
 import { jwtDecode } from "jwt-decode";
-import { ReactNode } from "react";
-import { Navigate } from "react-router-dom";
+import { ReactNode, useEffect } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import { toast } from "sonner";
 
 type TProtectedRouteProps = {
   children: ReactNode;
@@ -10,19 +12,37 @@ type TProtectedRouteProps = {
 };
 
 const ProtectedRoute = ({ children, role }: TProtectedRouteProps) => {
+  const location = useLocation();
   const token = useAppSelector(useGetCurrentToken);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    if (location?.state?.message) {
+      toast(location?.state?.message, {duration: 2000});
+    }
+  }, []);
+
   if (!token) {
-    return <Navigate to={"/login"} replace />;
+    return (
+      <Navigate
+        to={"/login"}
+        state={{ targetPath: location.pathname }}
+        replace
+      />
+    );
   }
 
-  const user = jwtDecode(token! as string);
-  console.log(user.role);
+  const user = jwtDecode(token! as string) as TJwtPayload;
 
   if (role !== undefined && role !== user?.role) {
     dispatch(logOut());
-    return <Navigate to={"/login"} replace />;
+    return (
+      <Navigate
+        to={"/login"}
+        state={{ targetPath: location.pathname }}
+        replace
+      />
+    );
   }
   return children;
 };

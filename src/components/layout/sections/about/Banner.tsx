@@ -1,4 +1,4 @@
-import bannerImg from "@/../public/testi.webp";
+import bannerImg from "@/../public/testi.jpg";
 
 const Banner = () => {
   return (
