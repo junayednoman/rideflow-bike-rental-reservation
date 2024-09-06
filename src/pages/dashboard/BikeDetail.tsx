@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Modal } from "antd";
 import { useState } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { z } from "zod";
 const schema = z.object({
   startTime: z.unknown().refine((value) => value, {
@@ -19,8 +19,6 @@ const schema = z.object({
 });
 
 const BikeDetail = () => {
-  const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const { data: profileData } = useGetMyProfileQuery(undefined);
 

@@ -2,6 +2,7 @@ import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
 import RButtonSmall from "@/components/ui/RButtonSmall";
 import RNoData from "@/components/ui/RNoData";
 import { useCreateRentalMutation } from "@/redux/api/rentalApi";
+import { TRental, TResponse } from "@/types";
 import handleMutation from "@/utils/handleMutation";
 import { useLocation } from "react-router-dom";
 
@@ -10,13 +11,26 @@ const Payment = () => {
   const location = useLocation();
   const bookingData = location?.state?.bookingData;
   const bikeData = location?.state?.bikeData;
+
   if (!bikeData) {
     return <RNoData />;
   }
-  const { name, image, pricePerHour, cc, brand, _id } = bikeData;
+  const { name, image, pricePerHour, cc, brand } = bikeData;
   // handle book bike
+  const onSuccess = (
+    res: TResponse<{ paymentInitUrl: string; result: TRental[] }>
+  ) => {
+    if (res?.data?.paymentInitUrl) {
+      window.location.href = res?.data?.paymentInitUrl;
+    }
+  };
   const handleBooking = () => {
-    handleMutation(bookingData, createRental, "Rental is being created...");
+    handleMutation(
+      bookingData,
+      createRental,
+      "Rental is being created...",
+      onSuccess
+    );
   };
   return (
     <div>

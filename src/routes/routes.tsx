@@ -9,6 +9,8 @@ import SignUpSuccess from "@/pages/SignUpSuccess";
 import { createBrowserRouter } from "react-router-dom";
 import { adminRoutes } from "./admin.routes";
 import { userRoutes } from "./user.routes";
+import PaymentSuccess from "@/pages/PaymentSuccess";
+import PaymentFailure from "@/pages/PaymentFailure";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
   {
     path: "sign-up-success",
     element: <SignUpSuccess />,
+  },
+  {
+    path: "payment-success/:transactionId",
+    element: <PaymentSuccess />,
+  },
+  {
+    path: "payment-failure",
+    element: <PaymentFailure />,
   },
 ]);
 

@@ -11,8 +11,8 @@ const handleMutation = async (
   try {
     const res = await mutationFunc(data).unwrap();
     console.log("res, ", res);
-    toast.success(res.message || "Success!", { id: loadingToast });
-    if (res.success) {
+    toast.success(res?.message || "Success!", { id: loadingToast });
+    if (res?.success) {
       if (typeof onSuccess === "function") {
         onSuccess(res);
       }
@@ -22,7 +22,7 @@ const handleMutation = async (
       }
     }
   } catch (error: any) {
-    toast.error(error.data.message || "Something went wrong!", {
+    toast.error(error?.data?.message || "Something went wrong!", {
       id: loadingToast,
     });
     console.log("error, ", error);
