@@ -1,8 +1,16 @@
 import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
 import RButtonSmall from "@/components/ui/RButtonSmall";
-import { useGetRentalsQuery } from "@/redux/api/rentalApi";
-import { TBike, TRental } from "@/types";
+import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
+import {
+  useGetRentalsQuery,
+  useMakePaymentMutation,
+} from "@/redux/api/rentalApi";
+import { TBike, TRental, TResponse, TUser } from "@/types";
+import handleMutation from "@/utils/handleMutation";
 import { Table, Tabs, TabsProps } from "antd";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { toast } from "sonner";
 
 export type TTableProps = {
   startTime: string;
@@ -13,9 +21,18 @@ export type TTableProps = {
 };
 
 const MyRentals = () => {
-  const { data, isFetching } = useGetRentalsQuery([
-    { name: "myRentals", value: true },
-  ]);
+  const location = useLocation();
+
+  const { data, isLoading } = useGetRentalsQuery(
+    [{ name: "myRentals", value: true }],
+    { pollingInterval: 2000 }
+  );
+
+  useEffect(() => {
+    if (location?.search?.includes("booking=confirmed")) {
+      toast.success("🎉 Booking Confirmed!");
+    }
+  }, [location?.search]);
 
   const paidData = data?.data?.result?.filter(
     (item: TRental) => item.isPaid === true
@@ -50,13 +67,13 @@ const MyRentals = () => {
       key: "1",
       label: "Unpaid",
       children: (
-        <UnPaidRentals loading={isFetching} options={unPaidRentalItems} />
+        <UnPaidRentals loading={isLoading} options={unPaidRentalItems} />
       ),
     },
     {
       key: "2",
       label: "Paid",
-      children: <PaidRentals loading={isFetching} options={paidRentalItems} />,
+      children: <PaidRentals loading={isLoading} options={paidRentalItems} />,
     },
   ];
   return (
@@ -114,6 +131,39 @@ const UnPaidRentals = ({
   options: TTableProps[];
   loading: boolean;
 }) => {
+  const { data } = useGetMyProfileQuery(undefined);
+  const usreData = data?.data as TUser;
+  const [makePayment] = useMakePaymentMutation();
+
+  // handle payment
+  const handlePayment = (totalCost: number, name: string, id: string) => {
+    const onSuccess = (
+      res: TResponse<{ paymentInitUrl: string; result: TRental[] }>
+    ) => {
+      if (res?.data?.paymentInitUrl) {
+        window.location.href = res?.data?.paymentInitUrl;
+      }
+    };
+
+    const paymentInfo = {
+      total_amount: totalCost,
+      currency: "BDT",
+      product_name: name,
+      product_category: "bike",
+      cus_name: usreData?.name,
+      cus_email: usreData?.email,
+      cus_add1: usreData?.address,
+      cus_postcode: usreData?.address,
+      cus_country: "Bangladesh",
+      cus_phone: usreData?.phone,
+    };
+    handleMutation(
+      { id, paymentInfo },
+      makePayment,
+      "Payment is under process...",
+      onSuccess
+    );
+  };
   const columns = [
     {
       title: "Name",
@@ -134,12 +184,26 @@ const UnPaidRentals = ({
     },
     {
       title: "Total Cost",
-      dataIndex: "totalCost",
+      render: ({ totalCost }: { totalCost: number }) => (
+        <p>{totalCost === 0 ? "Not calculated yet" : totalCost}</p>
+      ),
       key: "totalCost",
     },
     {
       title: "Payment",
-      render: () => <RButtonSmall>Pay Now</RButtonSmall>,
+      render: ({
+        totalCost,
+        name,
+        key,
+      }: {
+        totalCost: number;
+        name: string;
+        key: string;
+      }) => (
+        <RButtonSmall onClick={() => handlePayment(totalCost, name, key)}>
+          Pay Now
+        </RButtonSmall>
+      ),
       key: "address",
     },
   ];

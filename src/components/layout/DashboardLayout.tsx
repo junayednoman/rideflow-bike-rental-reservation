@@ -1,13 +1,71 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Button, Layout } from "antd";
+import { Button, Dropdown, Layout, MenuProps } from "antd";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { CircleUserRound, ListCheckIcon, LogOut, User } from "lucide-react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logOut, useGetCurrentUser } from "@/redux/features/authSlice";
+import { toast } from "sonner";
 
 const { Header, Content } = Layout;
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const user = useAppSelector(useGetCurrentUser);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
+   const handleLogout = () => {
+    dispatch(logOut());
+    toast.success("User logged out successfully!");
+    return navigate("/login");
+  };
+
+  //header drop down options
+  const items: MenuProps["items"] = [
+    {
+      label: (
+        <div className="flex items-center gap-2">
+          <User size={14} />
+          <Link to={`/dashboard/${user?.role}`}>Profile</Link>
+        </div>
+      ),
+      key: "0",
+    },
+    {
+      label: (
+        <div className="flex items-center gap-2">
+          <ListCheckIcon size={14} />
+          <Link
+            to={
+              user?.role === "admin"
+                ? `/dashboard/admin/manage-bikes`
+                : `/dashboard/user/my-rentals`
+            }
+          >
+            {user?.role === "admin" ? "Manage Rentals" : "My Rentals"}
+          </Link>
+        </div>
+      ),
+
+      key: "1",
+    },
+    {
+      type: "divider",
+    },
+    {
+      label: (
+        <div onClick={handleLogout} className="flex items-center gap-2">
+          <LogOut size={14} />
+          <button>Log Out</button>
+        </div>
+      ),
+
+      key: "3",
+    },
+  ];
+
+ 
   return (
     <div>
       <Layout>
@@ -17,24 +75,42 @@ const DashboardLayout = () => {
             style={{ position: "sticky", top: "0", left: "0", zIndex: 0 }}
             className={`bg-white ${
               collapsed ? "pl-16" : "pl-0"
-            } shadow-sm dashboardHeader`}
+            } shadow-sm dashboardHeader border-b`}
           >
-            <Button
-              type="text"
-              icon={
-                collapsed ? (
-                  <MenuUnfoldOutlined className="text-primaryColor" />
-                ) : (
-                  <MenuFoldOutlined className="text-primaryColor" />
-                )
-              }
-              onClick={() => setCollapsed(!collapsed)}
-              style={{
-                fontSize: "16px",
-                width: 64,
-                height: 64,
-              }}
-            />
+            <div className="flex items-center justify-between">
+              <Button
+                type="text"
+                icon={
+                  collapsed ? (
+                    <MenuUnfoldOutlined className="text-primaryColor" />
+                  ) : (
+                    <MenuFoldOutlined className="text-primaryColor" />
+                  )
+                }
+                onClick={() => setCollapsed(!collapsed)}
+                style={{
+                  fontSize: "16px",
+                  width: 64,
+                  height: 64,
+                }}
+              />
+              <div>
+                <Dropdown
+                  placement="bottomRight"
+                  menu={{ items }}
+                  trigger={["click"]}
+                >
+                  <a
+                    className="rounded-full"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <p className="border cursor-pointer bg-accentColor rounded-full p-2">
+                      <CircleUserRound className="text-white" size={22} />
+                    </p>
+                  </a>
+                </Dropdown>
+              </div>
+            </div>
           </Header>
           <Content
             className="md:py-8 py-5 md:px-12 px-6"

@@ -11,6 +11,15 @@ export const rentalApi = baseApi.injectEndpoints({
       }),
     }),
 
+    returnBike: builder.mutation({
+      invalidatesTags: ["rental"],
+      query: ({ rentalId, rentalEndTime }) => ({
+        url: `/rentals/${rentalId}/return`,
+        method: "PUT",
+        body: { rentalEndTime },
+      }),
+    }),
+
     getRentals: builder.query({
       providesTags: ["rental"],
       query: (args) => {
@@ -27,7 +36,32 @@ export const rentalApi = baseApi.injectEndpoints({
         };
       },
     }),
+    getSingleRental: builder.query({
+      providesTags: ["rental"],
+      query: (id) => {
+        return {
+          url: `/rentals/${id}`,
+          method: "GET",
+        };
+      },
+    }),
+    makePayment: builder.mutation({
+      invalidatesTags: ["rental"],
+      query: ({ id, paymentInfo }) => {
+        return {
+          url: `/rentals/${id}`,
+          method: "POST",
+          body: paymentInfo,
+        };
+      },
+    }),
   }),
 });
 
-export const { useCreateRentalMutation, useGetRentalsQuery } = rentalApi;
+export const {
+  useCreateRentalMutation,
+  useGetRentalsQuery,
+  useGetSingleRentalQuery,
+  useReturnBikeMutation,
+  useMakePaymentMutation,
+} = rentalApi;

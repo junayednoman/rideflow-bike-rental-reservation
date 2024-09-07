@@ -14,11 +14,11 @@ export type TTableProps = {
 };
 
 const Rentals = () => {
+  const [rentalId, setRentalId] = useState("");
   const { data, isFetching } = useGetRentalsQuery([
     { name: "isPaid", value: false },
     { name: "totalCost", value: 0 },
   ]);
-
 
   const rentalTableData = data?.data?.result?.map(
     ({ startTime, _id, bikeId, userId }: TTableProps) => ({
@@ -32,7 +32,8 @@ const Rentals = () => {
 
   // manage cost calculation
   const [isCalculationModalOpen, setIsCalculationModalOpen] = useState(false);
-  const showCalculationModal = () => {
+  const showCalculationModal = (id: string) => {
+    setRentalId(id);
     setIsCalculationModalOpen(true);
   };
 
@@ -54,9 +55,11 @@ const Rentals = () => {
     },
     {
       title: "Actions",
-      render: () => (
+      render: ({ key }: { key: string }) => (
         <div>
-          <RButtonSmall onClick={showCalculationModal}>Calculate</RButtonSmall>
+          <RButtonSmall onClick={() => showCalculationModal(key)}>
+            Calculate
+          </RButtonSmall>
         </div>
       ),
       key: "address",
@@ -74,6 +77,7 @@ const Rentals = () => {
         columns={columns}
       />
       <CalculateRentalCostModel
+        rentalId={rentalId}
         isModalOpen={isCalculationModalOpen}
         setIsModalOpen={setIsCalculationModalOpen}
       />

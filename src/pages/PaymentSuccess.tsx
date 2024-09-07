@@ -11,11 +11,11 @@ const PaymentSuccess = () => {
           🎉 Payment Successful! 🎉
         </h1>
         <p className="mb-5">
-          Your payment has been processed successfully, and your booking is now
-          confirmed! We’re thrilled to have you on board and can’t wait for you
-          to start your adventure. Check your email for the confirmation
-          details, and feel free to reach out if you have any questions. Happy
-          riding! 🚴‍♂️
+          Thank you for completing your payment! We’ve successfully processed
+          your final payment for the bike rental. We hope you had an amazing
+          experience riding with us. If you need any further assistance or have
+          any feedback, feel free to reach out to us. We look forward to serving
+          you again on your next adventure!
         </p>
         <p className="mb-8">Transaction ID: {transactionId}</p>
         <RButtonSmall link={`/dashboard/user/my-rentals`}>

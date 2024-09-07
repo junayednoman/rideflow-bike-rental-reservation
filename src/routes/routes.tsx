@@ -10,6 +10,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { adminRoutes } from "./admin.routes";
 import { userRoutes } from "./user.routes";
 import PaymentSuccess from "@/pages/PaymentSuccess";
+import AdvancePaymentFailure from "@/pages/AdvancePaymentFailure";
 import PaymentFailure from "@/pages/PaymentFailure";
 
 const router = createBrowserRouter([
@@ -66,7 +67,11 @@ const router = createBrowserRouter([
     element: <PaymentSuccess />,
   },
   {
-    path: "payment-failure",
+    path: "advance-payment-failure",
+    element: <AdvancePaymentFailure />,
+  },
+  {
+    path: "advance-payment-failure",
     element: <PaymentFailure />,
   },
 ]);

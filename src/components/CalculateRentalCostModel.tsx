@@ -5,13 +5,11 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import React, { Dispatch } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import RDatePicker from "./form/RDatePicker";
 import RTimePicker from "./form/RTimePicker";
+import { useReturnBikeMutation } from "@/redux/api/rentalApi";
+import handleMutation from "@/utils/handleMutation";
 
 const schema = z.object({
-  endDate: z.unknown().refine((value) => value, {
-    message: "End Date is required",
-  }),
   endTime: z.unknown().refine((value) => value, {
     message: "End Time is required",
   }),
@@ -20,24 +18,30 @@ const schema = z.object({
 type TModalProps = {
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<React.SetStateAction<boolean>>;
+  rentalId: string;
 };
 
 const CalculateRentalCostModel = ({
   isModalOpen,
   setIsModalOpen,
+  rentalId,
 }: TModalProps) => {
   const handleModalCancel = () => {
     setIsModalOpen(false);
   };
+  const [returnBike] = useReturnBikeMutation();
 
-  // handle calculation
   const handleFormSubmit: SubmitHandler<FieldValues> = (data) => {
-    const bookingData = {
-      endDate: data?.endDate?.format("D, MMMM, YYYY"),
-      endTime: data?.endTime?.format("HH:mm"),
+    const onSuccess = () => {
+      setIsModalOpen(false);
     };
-
-    console.log(bookingData);
+    const rentalEndTime = data?.endTime?.format("HH:mm");
+    handleMutation(
+      { rentalEndTime, rentalId },
+      returnBike,
+      "Bike is returning...",
+      onSuccess
+    );
   };
   return (
     <div>
@@ -52,13 +56,8 @@ const CalculateRentalCostModel = ({
             resolver={zodResolver(schema)}
             handleFormSubmit={handleFormSubmit}
           >
-            <RDatePicker
-              label="end Date*"
-              name="endDate"
-              placeholder="Select end date"
-            />
             <RTimePicker
-              label="end Time*"
+              label="End Time*"
               name="endTime"
               placeholder="Select end time"
             />

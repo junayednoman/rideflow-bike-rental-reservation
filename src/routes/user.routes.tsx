@@ -1,8 +1,8 @@
 
+import AdvancePayment from "@/pages/dashboard/AdvancePayment";
 import BikeDetail from "@/pages/dashboard/BikeDetail";
 import Bikes from "@/pages/dashboard/Bikes";
 import MyRentals from "@/pages/dashboard/MyRentals";
-import Payment from "@/pages/dashboard/Payment";
 import Profile from "@/pages/dashboard/Profile";
 
 export const userRoutes = [
@@ -20,7 +20,7 @@ export const userRoutes = [
   },
   {
     path: "payment",
-    element: <Payment />,
+    element: <AdvancePayment />,
   },
   {
     path: "my-rentals",
