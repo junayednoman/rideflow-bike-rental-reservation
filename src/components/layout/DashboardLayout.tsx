@@ -15,7 +15,7 @@ const DashboardLayout = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-   const handleLogout = () => {
+  const handleLogout = () => {
     dispatch(logOut());
     toast.success("User logged out successfully!");
     return navigate("/login");
@@ -65,7 +65,6 @@ const DashboardLayout = () => {
     },
   ];
 
- 
   return (
     <div>
       <Layout>

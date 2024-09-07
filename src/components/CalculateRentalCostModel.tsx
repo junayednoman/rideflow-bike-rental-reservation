@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import RForm from "./form/RForm";
 import RButtonSmall from "./ui/RButtonSmall";
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import React, { Dispatch } from "react";
+import React, { Dispatch, useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import RTimePicker from "./form/RTimePicker";
@@ -26,6 +26,7 @@ const CalculateRentalCostModel = ({
   setIsModalOpen,
   rentalId,
 }: TModalProps) => {
+  const [reset, setReset] = useState(false);
   const handleModalCancel = () => {
     setIsModalOpen(false);
   };
@@ -34,6 +35,7 @@ const CalculateRentalCostModel = ({
   const handleFormSubmit: SubmitHandler<FieldValues> = (data) => {
     const onSuccess = () => {
       setIsModalOpen(false);
+      setReset(true);
     };
     const rentalEndTime = data?.endTime?.format("HH:mm");
     handleMutation(
@@ -43,6 +45,7 @@ const CalculateRentalCostModel = ({
       onSuccess
     );
   };
+
   return (
     <div>
       <Modal
@@ -53,6 +56,7 @@ const CalculateRentalCostModel = ({
       >
         <div>
           <RForm
+            reset={reset}
             resolver={zodResolver(schema)}
             handleFormSubmit={handleFormSubmit}
           >

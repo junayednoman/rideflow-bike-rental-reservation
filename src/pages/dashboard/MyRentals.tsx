@@ -8,7 +8,6 @@ import {
 import { TBike, TRental, TResponse, TUser } from "@/types";
 import handleMutation from "@/utils/handleMutation";
 import { Table, Tabs, TabsProps } from "antd";
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -28,11 +27,14 @@ const MyRentals = () => {
     { pollingInterval: 2000 }
   );
 
-  useEffect(() => {
-    if (location?.search?.includes("booking=confirmed")) {
-      toast.success("🎉 Booking Confirmed!");
-    }
-  }, [location?.search]);
+  if (location?.search === "?booking=confirmed") {
+    toast.success("🎉 Rental Confirmed!");
+    setTimeout(() => {
+      window.location.replace(
+        "http://localhost:5173/dashboard/user/my-rentals"
+      );
+    }, 1200);
+  }
 
   const paidData = data?.data?.result?.filter(
     (item: TRental) => item.isPaid === true

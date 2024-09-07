@@ -72,6 +72,7 @@ const Rentals = () => {
         <DashboardSectionTitle heading="All Rentals" />
       </div>
       <Table
+       
         dataSource={rentalTableData}
         loading={isFetching}
         columns={columns}

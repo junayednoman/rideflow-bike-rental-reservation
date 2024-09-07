@@ -22,6 +22,7 @@ const RForm = ({
   handleFormSubmit,
   defaultValues,
   resolver,
+  reset,
 }: TFormProps) => {
   const formConfig: TFormConfig = {};
   if (defaultValues) {
@@ -32,12 +33,19 @@ const RForm = ({
   }
   const methods = useForm(formConfig);
 
+  const onSubmit = async (data: FieldValues) => {
+    await handleFormSubmit(data);
+    if (reset) {
+      methods.reset();
+    }
+  };
+
   return (
     <FormProvider {...methods}>
       <Form
         style={{ width: "100%" }}
         layout="vertical"
-        onFinish={methods.handleSubmit(handleFormSubmit)}
+        onFinish={methods.handleSubmit(onSubmit)}
       >
         {children}
       </Form>

@@ -12,11 +12,13 @@ import { userRoutes } from "./user.routes";
 import PaymentSuccess from "@/pages/PaymentSuccess";
 import AdvancePaymentFailure from "@/pages/AdvancePaymentFailure";
 import PaymentFailure from "@/pages/PaymentFailure";
+import ErrorPage from "@/pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

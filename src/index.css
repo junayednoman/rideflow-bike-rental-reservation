@@ -94,6 +94,7 @@ h6 {
 .dashboardHeader {
   background-color: #fff;
   box-shadow: 0px 2px 53px -30px rgba(0, 0, 0, 0.68);
+  z-index: 99 !important;
 }
 
 .ant-menu-item {
