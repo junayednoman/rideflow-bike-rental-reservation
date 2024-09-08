@@ -8,6 +8,7 @@ import {
   ListCheckIcon,
   LogOut,
   Moon,
+  SunMoon,
   User,
 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -78,7 +79,7 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className={`${mode === 'dark' ? 'dark-mode' : ''}`}>
+    <div className={`${mode === "dark" ? "dark-mode" : ""}`}>
       <Layout>
         <Sidebar collapsed={collapsed} />
         <Layout>
@@ -107,9 +108,20 @@ const DashboardLayout = () => {
                 <div className="text-white">
                   <p
                     onClick={handleChangeMode}
-                    className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-2 flex items-center gap-2"
+                    className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-5 flex items-center justify-center relative"
                   >
-                    <Moon className="text-white" size={25} />
+                    <Moon
+                      className={`text-white ${
+                        mode === "dark" ? "opacity-0" : "opacity-100"
+                      } absolute left-0 top-[7px] w-full duration-300`}
+                      size={25}
+                    />
+                    <SunMoon
+                      className={`text-white ${
+                        mode === "dark" ? "opacity-100" : "opacity-0"
+                      } absolute left-0 top-[9px] w-full duration-300`}
+                      size={22}
+                    />
                   </p>
                 </div>
                 <Dropdown
