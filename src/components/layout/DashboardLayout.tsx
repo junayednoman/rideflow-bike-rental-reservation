@@ -5,7 +5,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import {
   CircleUserRound,
-  ListCheckIcon,
+  Home,
   LogOut,
   Moon,
   SunMoon,
@@ -44,16 +44,8 @@ const DashboardLayout = () => {
     {
       label: (
         <div className="flex items-center gap-2">
-          <ListCheckIcon size={14} />
-          <Link
-            to={
-              user?.role === "admin"
-                ? `/dashboard/admin/manage-bikes`
-                : `/dashboard/user/my-rentals`
-            }
-          >
-            {user?.role === "admin" ? "Manage Rentals" : "My Rentals"}
-          </Link>
+          <Home size={14} />
+          <Link to={"/"}>Home</Link>
         </div>
       ),
 
@@ -113,8 +105,8 @@ const DashboardLayout = () => {
                     <Moon
                       className={`text-white ${
                         mode === "dark" ? "opacity-0" : "opacity-100"
-                      } absolute left-0 top-[7px] w-full duration-300`}
-                      size={25}
+                      } absolute left-0 top-[9px] w-full duration-300`}
+                      size={22}
                     />
                     <SunMoon
                       className={`text-white ${

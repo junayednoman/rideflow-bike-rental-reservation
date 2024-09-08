@@ -136,8 +136,8 @@ const Header = () => {
                 className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-5 flex items-center justify-center relative"
               >
                 <Moon
-                  className={`text-white ${mode === 'dark' ? 'opacity-0' : 'opacity-100'} absolute left-0 top-[7px] w-full duration-300`}
-                  size={25}
+                  className={`text-white ${mode === 'dark' ? 'opacity-0' : 'opacity-100'} absolute left-0 top-[9px] w-full duration-300`}
+                  size={22}
                 />
                 <SunMoon
                   className={`text-white ${mode === 'dark' ? 'opacity-100' : 'opacity-0'} absolute left-0 top-[9px] w-full duration-300`}

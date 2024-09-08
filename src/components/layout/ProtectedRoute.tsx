@@ -17,8 +17,8 @@ const ProtectedRoute = ({ children, role }: TProtectedRouteProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (location?.state?.message) {
-      toast(location?.state?.message, {duration: 2000});
+    if (!token && location?.state?.message) {
+      toast(location?.state?.message, { duration: 2000 });
     }
   }, []);
 
@@ -44,6 +44,7 @@ const ProtectedRoute = ({ children, role }: TProtectedRouteProps) => {
       />
     );
   }
+
   return children;
 };
 
