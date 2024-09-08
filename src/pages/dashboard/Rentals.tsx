@@ -75,6 +75,7 @@ const Rentals = () => {
         dataSource={rentalTableData}
         loading={isFetching}
         columns={columns}
+        scroll={{ x: 800 }} 
       />
       <CalculateRentalCostModel
         rentalId={rentalId}

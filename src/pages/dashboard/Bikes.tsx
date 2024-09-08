@@ -124,6 +124,7 @@ const Bikes = () => {
         dataSource={tableData}
         loading={isFetching}
         columns={columns}
+        scroll={{ x: 800 }} 
       />
     </div>
   );

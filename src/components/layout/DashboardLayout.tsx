@@ -77,7 +77,7 @@ const DashboardLayout = () => {
         <Layout>
           <Header
             style={{ position: "sticky", top: "0", left: "0", zIndex: 0 }}
-            className={`bg-white dark:bg-primaryColor pl-0 shadow-sm dashboardHeader border-b  dark:border-b-[#4d4d4d]`}
+            className={`bg-white dark:bg-primaryColor pl-0 md:pr-10 pr-4 shadow-sm dashboardHeader border-b  dark:border-b-[#4d4d4d]`}
           >
             <div className="flex items-center justify-between">
               <Button
@@ -125,7 +125,7 @@ const DashboardLayout = () => {
                     className="rounded-full"
                     onClick={(e) => e.preventDefault()}
                   >
-                    <p className="border cursor-pointer bg-accentColor rounded-full p-2">
+                    <p className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-2">
                       <CircleUserRound className="text-white" size={22} />
                     </p>
                   </a>

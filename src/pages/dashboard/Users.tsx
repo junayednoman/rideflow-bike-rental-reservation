@@ -88,7 +88,12 @@ const Users = () => {
       <div className="flex justify-between items-center">
         <DashboardSectionTitle heading="All Users" />
       </div>
-      <Table dataSource={tableData} loading={isFetching} columns={columns} />
+      <Table
+        dataSource={tableData}
+        loading={isFetching}
+        columns={columns}
+        scroll={{ x: 800 }}
+      />
     </div>
   );
 };

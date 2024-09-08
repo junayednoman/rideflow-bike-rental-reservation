@@ -120,7 +120,7 @@ const PaidRentals = ({
   ];
   return (
     <div>
-      <Table loading={loading} dataSource={options} columns={columns} />
+      <Table loading={loading} dataSource={options} columns={columns} scroll={{ x: 800 }}  />
     </div>
   );
 };
@@ -211,7 +211,7 @@ const UnPaidRentals = ({
   ];
   return (
     <div>
-      <Table loading={loading} dataSource={options} columns={columns} />
+      <Table loading={loading} dataSource={options} columns={columns} scroll={{ x: 850 }}  />
     </div>
   );
 };

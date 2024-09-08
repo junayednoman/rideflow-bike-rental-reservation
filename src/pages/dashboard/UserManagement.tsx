@@ -55,7 +55,7 @@ const UserManagement = () => {
       <div className="flex justify-between items-center">
         <DashboardSectionTitle heading="All Users" />
       </div>
-      <Table dataSource={tableData} columns={columns} />
+      <Table dataSource={tableData} columns={columns} scroll={{ x: 800 }} />
     </div>
   );
 };

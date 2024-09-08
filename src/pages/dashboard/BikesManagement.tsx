@@ -181,6 +181,7 @@ const BikesManagement = () => {
         loading={isFetching}
         dataSource={tableData}
         columns={columns}
+        scroll={{ x: 800 }} 
       />
       <CreateBikeModal
         isModalOpen={isCreateBikeModalOpen}

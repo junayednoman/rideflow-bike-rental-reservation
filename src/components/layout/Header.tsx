@@ -129,58 +129,66 @@ const Header = () => {
               ))}
             </ul>
           </div>
-          <div className="col-span-1 mt-1 ml-auto lg:flex items-center gap-4 hidden">
-            <div className="text-white">
-              <p
-                onClick={handleChangeMode}
-                className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-5 flex items-center justify-center relative"
-              >
-                <Moon
-                  className={`text-white ${mode === 'dark' ? 'opacity-0' : 'opacity-100'} absolute left-0 top-[9px] w-full duration-300`}
-                  size={22}
-                />
-                <SunMoon
-                  className={`text-white ${mode === 'dark' ? 'opacity-100' : 'opacity-0'} absolute left-0 top-[9px] w-full duration-300`}
-                  size={22}
-                />
-              </p>
-            </div>
-            {user ? (
-              <Dropdown
-                placement="bottomRight"
-                menu={{ items }}
-                trigger={["click"]}
-              >
-                <a className="rounded-full" onClick={(e) => e.preventDefault()}>
-                  <p className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-2">
-                    <CircleUserRound className="text-white" size={25} />
-                  </p>
-                </a>
-              </Dropdown>
-            ) : (
-              <RButtonSmallWhite link="/login">Login</RButtonSmallWhite>
-            )}
-          </div>
-          <div className="col-span-1 ml-auto lg:hidden block">
-            <Menu
-              onClick={showDrawer}
-              className="text-white w-[28px] h-[28px]"
-            />
-            <Drawer title="Navbar" onClose={onClose} open={open}>
-              <ul className="flex flex-col items-end gap-6">
-                {menuItems.map((item) => (
-                  <li
-                    key={item.label}
-                    className="capitalize font-medium hover:text-accentColor duration-300 border-b-2 hover:border-b-2 cursor-pointer border-accentColor pb-2 border-opacity-0 hover:border-opacity-100 hover:pb-1"
-                  >
-                    <Link to={item.link}>{item.label}</Link>
-                  </li>
-                ))}
-              </ul>
-              <div className="text-right mt-4">
-                <RButtonSmall link="#">Login</RButtonSmall>
+          <div className="col-span-1 ml-auto flex items-center md:gap-4 gap-2">
+            <div className="col-span-1 mt-1 ml-auto flex items-center md:gap-4 gap-2">
+              <div className="text-white">
+                <p
+                  onClick={handleChangeMode}
+                  className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-5 flex items-center justify-center relative"
+                >
+                  <Moon
+                    className={`text-white ${
+                      mode === "dark" ? "opacity-0" : "opacity-100"
+                    } absolute left-0 top-[9px] w-full duration-300`}
+                    size={22}
+                  />
+                  <SunMoon
+                    className={`text-white ${
+                      mode === "dark" ? "opacity-100" : "opacity-0"
+                    } absolute left-0 top-[9px] w-full duration-300`}
+                    size={22}
+                  />
+                </p>
               </div>
-            </Drawer>
+              {user ? (
+                <Dropdown
+                  placement="bottomRight"
+                  menu={{ items }}
+                  trigger={["click"]}
+                >
+                  <a
+                    className="rounded-full"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <p className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-2">
+                      <CircleUserRound className="text-white" size={25} />
+                    </p>
+                  </a>
+                </Dropdown>
+              ) : (
+                <RButtonSmallWhite link="/login">Login</RButtonSmallWhite>
+              )}
+            </div>
+            <div className="col-span-1 ml-auto lg:hidden block">
+              <p className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-[9px] flex items-center justify-center relative text-white">
+                <Menu onClick={showDrawer} size={22} />
+              </p>
+              <Drawer title="Navbar" onClose={onClose} open={open}>
+                <ul className="flex flex-col items-end gap-6">
+                  {menuItems.map((item) => (
+                    <li
+                      key={item.label}
+                      className="capitalize font-medium hover:text-accentColor duration-300 border-b-2 hover:border-b-2 cursor-pointer border-accentColor pb-2 border-opacity-0 hover:border-opacity-100 hover:pb-1"
+                    >
+                      <Link to={item.link}>{item.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="text-right mt-4">
+                  <RButtonSmall link="#">Login</RButtonSmall>
+                </div>
+              </Drawer>
+            </div>
           </div>
         </div>
       </RContainer>
