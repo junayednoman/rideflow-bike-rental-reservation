@@ -4,6 +4,7 @@ import { TBike, TQueryParams } from "@/types";
 import { Table, TableProps, Tooltip } from "antd";
 import { Eye } from "lucide-react";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Bikes = () => {
@@ -118,13 +119,16 @@ const Bikes = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>All Bikes - Rideflow</title>
+      </Helmet>
       <DashboardSectionTitle heading="All Bikes" align="left" />
       <Table
         onChange={onChange}
         dataSource={tableData}
         loading={isFetching}
         columns={columns}
-        scroll={{ x: 800 }} 
+        scroll={{ x: 800 }}
       />
     </div>
   );

@@ -7,6 +7,7 @@ import { Divider } from "antd";
 import moment from "moment";
 import { useState } from "react";
 import profileImage from "@/assets/images/profile.jpg";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -29,6 +30,11 @@ const Profile = () => {
 
   return (
     <div className="md:pt-10 pt-5">
+      <Helmet>
+        <title>
+          Profile - Rideflow
+        </title>
+      </Helmet>
       {data?.success ? (
         <>
           <h4 className="md:text-3xl text-xl font-semibold text-center dark:text-gray-300">

@@ -8,6 +8,7 @@ import {
 import { TBike, TRental, TResponse, TUser } from "@/types";
 import handleMutation from "@/utils/handleMutation";
 import { Table, Tabs, TabsProps } from "antd";
+import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -120,7 +121,12 @@ const PaidRentals = ({
   ];
   return (
     <div>
-      <Table loading={loading} dataSource={options} columns={columns} scroll={{ x: 800 }}  />
+      <Table
+        loading={loading}
+        dataSource={options}
+        columns={columns}
+        scroll={{ x: 800 }}
+      />
     </div>
   );
 };
@@ -211,7 +217,15 @@ const UnPaidRentals = ({
   ];
   return (
     <div>
-      <Table loading={loading} dataSource={options} columns={columns} scroll={{ x: 850 }}  />
+      <Helmet>
+        <title>My Rentals - Rideflow</title>
+      </Helmet>
+      <Table
+        loading={loading}
+        dataSource={options}
+        columns={columns}
+        scroll={{ x: 850 }}
+      />
     </div>
   );
 };

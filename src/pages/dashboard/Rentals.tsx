@@ -5,6 +5,7 @@ import { useGetRentalsQuery } from "@/redux/api/rentalApi";
 import { TBike, TUser } from "@/types";
 import { Table } from "antd";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 export type TTableProps = {
   startTime: string;
@@ -68,6 +69,9 @@ const Rentals = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Rentals - Rideflow</title>
+      </Helmet>
       <div className="flex justify-between items-center">
         <DashboardSectionTitle heading="All Rentals" />
       </div>
@@ -75,7 +79,7 @@ const Rentals = () => {
         dataSource={rentalTableData}
         loading={isFetching}
         columns={columns}
-        scroll={{ x: 800 }} 
+        scroll={{ x: 800 }}
       />
       <CalculateRentalCostModel
         rentalId={rentalId}

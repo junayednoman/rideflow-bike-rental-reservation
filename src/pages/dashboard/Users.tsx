@@ -8,6 +8,7 @@ import { TUser } from "@/types";
 import handleMutation from "@/utils/handleMutation";
 import { Popconfirm, Table, Tooltip } from "antd";
 import { Trash, UserCog } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const Users = () => {
   // manage delete user
@@ -85,6 +86,9 @@ const Users = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Users - Rideflow</title>
+      </Helmet>
       <div className="flex justify-between items-center">
         <DashboardSectionTitle heading="All Users" />
       </div>

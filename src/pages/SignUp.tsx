@@ -11,6 +11,7 @@ import handleMutation from "@/utils/handleMutation";
 import { signValidationSchema } from "@/validation";
 import { useAppDispatch } from "@/redux/hooks";
 import { logOut } from "@/redux/features/authSlice";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const [signUp] = useSignUpMutation();
@@ -27,6 +28,9 @@ const SignUp = () => {
 
   return (
     <div className="md:py-24 py-16">
+      <Helmet>
+        <title>Sign Up - Rideflow</title>
+      </Helmet>
       <RContainer>
         <div className="md:w-[600px] mx-auto">
           <RSectionTitle

@@ -5,6 +5,7 @@ import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
 import { useCreateRentalMutation } from "@/redux/api/rentalApi";
 import { TRental, TResponse, TUser } from "@/types";
 import handleMutation from "@/utils/handleMutation";
+import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 
 const AdvancePayment = () => {
@@ -49,6 +50,9 @@ const AdvancePayment = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Advance Payment - Rideflow</title>
+      </Helmet>
       <DashboardSectionTitle
         align="left"
         heading="Make a Tk 100 payment to confirm your rental."

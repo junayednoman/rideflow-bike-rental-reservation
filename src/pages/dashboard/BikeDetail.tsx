@@ -9,6 +9,7 @@ import { useGetSingleBikeQuery } from "@/redux/api/bikeApi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Modal } from "antd";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { z } from "zod";
@@ -63,6 +64,9 @@ const BikeDetail = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>{bikeData?.name} - Rideflow</title>
+      </Helmet>
       {bikeData ? (
         <div className="flex xl:flex-row flex-col gap-14 dark:text-gray-300">
           <div>

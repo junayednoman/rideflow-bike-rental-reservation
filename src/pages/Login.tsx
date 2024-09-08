@@ -11,11 +11,8 @@ import { jwtDecode } from "jwt-decode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import { TJwtPayload, TResponse, TUser } from "@/types";
+import { Helmet } from "react-helmet";
 
-const loginDefaultValues = {
-  email: "junayednoman05@gmail.com",
-  password: "noman05",
-};
 
 const Login = () => {
   const location = useLocation();
@@ -41,11 +38,13 @@ const Login = () => {
   };
   return (
     <div className="md:py-24 py-16">
+      <Helmet>
+        <title>Login - Rideflow</title>
+      </Helmet>
       <RContainer>
         <div className="md:w-[600px] mx-auto">
           <RSectionTitle heading="Login now" subHeading="Welcome back" />
           <RForm
-            defaultValues={loginDefaultValues}
             handleFormSubmit={handleForm}
           >
             <RInput label="Email" name="email" placeholder="Enter your email" />

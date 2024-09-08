@@ -13,6 +13,7 @@ import handleMutation from "@/utils/handleMutation";
 import { Popconfirm, Table, TableProps, Tooltip } from "antd";
 import { Edit, Trash } from "lucide-react";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const BikesManagement = () => {
   // bike id for getting single bike
@@ -170,6 +171,9 @@ const BikesManagement = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Manage Bikes - Rideflow</title>
+      </Helmet>
       <div className="flex justify-between items-center">
         <DashboardSectionTitle heading="All Bikes" align="left" />
         <div>
@@ -181,7 +185,7 @@ const BikesManagement = () => {
         loading={isFetching}
         dataSource={tableData}
         columns={columns}
-        scroll={{ x: 800 }} 
+        scroll={{ x: 800 }}
       />
       <CreateBikeModal
         isModalOpen={isCreateBikeModalOpen}
