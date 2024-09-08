@@ -3,10 +3,17 @@ import { Button, Dropdown, Layout, MenuProps } from "antd";
 import { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import { CircleUserRound, ListCheckIcon, LogOut, User } from "lucide-react";
+import {
+  CircleUserRound,
+  ListCheckIcon,
+  LogOut,
+  Moon,
+  User,
+} from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logOut, useGetCurrentUser } from "@/redux/features/authSlice";
 import { toast } from "sonner";
+import { changeTheme, useGetCurrentMode } from "@/redux/features/themeSlice";
 
 const { Header, Content } = Layout;
 const DashboardLayout = () => {
@@ -14,6 +21,7 @@ const DashboardLayout = () => {
   const user = useAppSelector(useGetCurrentUser);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const mode = useAppSelector(useGetCurrentMode);
 
   const handleLogout = () => {
     dispatch(logOut());
@@ -65,25 +73,27 @@ const DashboardLayout = () => {
     },
   ];
 
+  const handleChangeMode = () => {
+    dispatch(changeTheme(mode === "light" ? "dark" : "light"));
+  };
+
   return (
-    <div>
+    <div className={`${mode === 'dark' ? 'dark-mode' : ''}`}>
       <Layout>
         <Sidebar collapsed={collapsed} />
         <Layout>
           <Header
             style={{ position: "sticky", top: "0", left: "0", zIndex: 0 }}
-            className={`bg-white ${
-              collapsed ? "pl-16" : "pl-0"
-            } shadow-sm dashboardHeader border-b`}
+            className={`bg-white dark:bg-primaryColor pl-0 shadow-sm dashboardHeader border-b  dark:border-b-[#4d4d4d]`}
           >
             <div className="flex items-center justify-between">
               <Button
                 type="text"
                 icon={
                   collapsed ? (
-                    <MenuUnfoldOutlined className="text-primaryColor" />
+                    <MenuUnfoldOutlined className="text-primaryColor dark:text-gray-300" />
                   ) : (
-                    <MenuFoldOutlined className="text-primaryColor" />
+                    <MenuFoldOutlined className="text-primaryColor dark:text-gray-300" />
                   )
                 }
                 onClick={() => setCollapsed(!collapsed)}
@@ -93,7 +103,15 @@ const DashboardLayout = () => {
                   height: 64,
                 }}
               />
-              <div>
+              <div className="flex items-center gap-3">
+                <div className="text-white">
+                  <p
+                    onClick={handleChangeMode}
+                    className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-2 flex items-center gap-2"
+                  >
+                    <Moon className="text-white" size={25} />
+                  </p>
+                </div>
                 <Dropdown
                   placement="bottomRight"
                   menu={{ items }}
@@ -112,10 +130,10 @@ const DashboardLayout = () => {
             </div>
           </Header>
           <Content
-            className="md:py-8 py-5 md:px-12 px-6"
+            className="md:py-8 py-5 md:px-12 px-6 bg-[#fffcf8] dark:bg-darkPrimary"
             style={{
               minHeight: 280,
-              backgroundColor: "#fffcf8",
+              // backgroundColor: "#fffcf8",
             }}
           >
             <Outlet />

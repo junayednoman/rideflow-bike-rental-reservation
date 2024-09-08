@@ -1,6 +1,6 @@
 import { Modal, Row } from "antd";
 import RForm from "./form/RForm";
-import RButtonSmall from "./ui/RButtonSmall";
+import RButtonSmall from "./layout/ui/RButtonSmall";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import RInput from "./form/RInput";
 import React, { Dispatch } from "react";
@@ -9,8 +9,8 @@ import {
   useGetSingleBikeQuery,
   useUpdateBikeMutation,
 } from "@/redux/api/bikeApi";
-import RSpinner from "./ui/RSpinner";
-import RNoData from "./ui/RNoData";
+import RSpinner from "./layout/ui/RSpinner";
+import RNoData from "./layout/ui/RNoData";
 import { bikeValidationSchema } from "@/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import RSelect from "./form/RSelect";

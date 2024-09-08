@@ -1,10 +1,15 @@
-import { Input } from "antd";
+import RInput from "@/components/form/RInput";
 import RContainer from "../../RContainer";
-import TextArea from "antd/es/input/TextArea";
-import RSectionTitle from "@/components/ui/RSectionTitle";
-import RButtonSmall from "@/components/ui/RButtonSmall";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
+import RForm from "@/components/form/RForm";
+import RTextArea from "@/components/form/RTextArea";
+import { FieldValues, SubmitHandler } from "react-hook-form";
+import RButtonSmall from "../../ui/RButtonSmall";
 
 const Contact = () => {
+  const handleContactForm: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
+  };
   return (
     <div className="xl:py-24 md:py-20 py-16">
       <RContainer>
@@ -13,45 +18,16 @@ const Contact = () => {
           subHeading="Get in Touch with Us"
         />
         <div className="lg:w-[700px] mx-auto -mt-3">
-          <form>
-            <div>
-              <label htmlFor="name" className="font-medium capitalize">
-                name
-              </label>
-              <Input
-                className="rounded-none mt-1"
-                size="large"
-                id="name"
-                name="name"
-              />
-            </div>
-            <div className="mt-4">
-              <label htmlFor="email" className="font-medium capitalize">
-                email
-              </label>
-              <Input
-                className="rounded-none mt-1"
-                size="large"
-                id="email"
-                name="email"
-              />
-            </div>
-            <div className="mt-4">
-              <label htmlFor="message" className="font-medium capitalize">
-                message
-              </label>
-              <TextArea
-                className="rounded-none mt-1"
-                rows={4}
-                size="large"
-                id="message"
-                name="message"
-              />
-            </div>
-            <div className="mt-5">
-              <RButtonSmall>Submit</RButtonSmall>
-            </div>
-          </form>
+          <RForm handleFormSubmit={handleContactForm}>
+            <RInput
+              name="contact_name"
+              label="Name"
+              placeholder="Enter your name"
+            />
+            <RInput name="email" label="Email" placeholder="Enter your email" />
+            <RTextArea name="message" label="Message" rows={5} />
+            <RButtonSmall>Submit</RButtonSmall>
+          </RForm>
         </div>
       </RContainer>
     </div>

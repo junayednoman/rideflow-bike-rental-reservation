@@ -1,6 +1,6 @@
 import CreateBikeModal from "@/components/CreateBikeModal";
-import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
-import RButtonSmall from "@/components/ui/RButtonSmall";
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
 import UpdateBikeModal from "@/components/UpdateBikeModal";
 
 import {
@@ -18,7 +18,6 @@ const BikesManagement = () => {
   // bike id for getting single bike
   const [bikeId, setBikeId] = useState("");
 
-  
   // set query params
   const [params, setParams] = useState<TQueryParams[] | []>([]);
 

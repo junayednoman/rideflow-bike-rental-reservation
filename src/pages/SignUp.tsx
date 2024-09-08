@@ -1,11 +1,11 @@
 import RForm from "@/components/form/RForm";
 import RInput from "@/components/form/RInput";
 import RContainer from "@/components/layout/RContainer";
-import RButtonSmall from "@/components/ui/RButtonSmall";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import { useSignUpMutation } from "@/redux/api/auth/authApi";
 import handleMutation from "@/utils/handleMutation";
 import { signValidationSchema } from "@/validation";

@@ -3,7 +3,7 @@ import { Controller } from "react-hook-form";
 import RInputError from "./RInputError";
 type TInputProps = {
   name: string;
-  label: string;
+  label?: string;
   placeholder?: string;
   type?: "text" | "number";
   disabled?: boolean;
@@ -28,14 +28,14 @@ const RInput = ({
           name={name}
           render={({ field, fieldState: error }) => (
             <div className="w-full">
-              <Form.Item htmlFor={name} label={label} className="mb-3 font-semibold">
+              <Form.Item htmlFor={name} label={label} className="mb-3 font-semibold text-red-300">
                 <Input
                   {...field}
                   id={name}
                   type={type}
                   placeholder={placeholder}
                   disabled={disabled}
-                  className="block font-normal rounded-none focus:border-primaryColor focus:shadow-none hover:border-primaryColor"
+                  className="block font-normal rounded-none dark:bg-primaryColor dark:border-gray-500 focus:border-primaryColor focus:shadow-none hover:border-primaryColor text-primaryColor dark:text-gray-300 hover:dark:bg-primaryColor hover:dark:border-gray-300 focus:dark:bg-primaryColor focus:dark:border-gray-300 placeholder:dark:text-gray-400"
                   size="large"
                 />
                 {error && (

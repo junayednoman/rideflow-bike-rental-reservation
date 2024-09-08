@@ -1,11 +1,16 @@
 import bikeVideo from "@/assets/images/motorbike.mp4";
 import bannerImg from "@/../public/mototr bike bg.jpg";
-import { DatePicker, Input } from "antd";
-import RButtonWhite from "@/components/ui/RButtonWhite";
-import RButtonSmall from "@/components/ui/RButtonSmall";
-const { RangePicker } = DatePicker;
+import RButtonWhite from "@/components/layout/ui/RButtonWhite";
+import RForm from "@/components/form/RForm";
+import RInput from "@/components/form/RInput";
+import RDatePicker from "@/components/form/RDatePicker";
+import { Row } from "antd";
+import RButtonSmall from "../../ui/RButtonSmall";
 
 const Banner = () => {
+  const handleSearchProduct = () => {
+    console.log("search product");
+  };
   return (
     <div className="relative md:h-screen overflow-hidden text-center">
       {/* Video Background */}
@@ -36,21 +41,25 @@ const Banner = () => {
           and eco-friendly.
         </p>
         <RButtonWhite>Start Riding</RButtonWhite>
-        <div className="bg-white z-[9999] p-10 lg:w-[1000px] md:absolute bottom-0 md:mt-0 mt-14">
-          <div className="grid md:grid-cols-4 grid-cols-1 items-center md:gap-4 gap-y-4">
-            <div className="grid md:grid-cols-2 items-center justify-center gap-4 col-span-3">
-              <Input
-                className="rounded-none"
-                size="large"
-                placeholder="enter bike name"
-              />
-              {/* <div></div> */}
-              <RangePicker className="rounded-none" size="large" />
+        <div className="bg-white dark:bg-primaryColor z-[9999] p-6 px-10 lg:w-[1000px] md:absolute bottom-0 md:mt-0 mt-14">
+          <RForm handleFormSubmit={handleSearchProduct}>
+            <div className="grid md:grid-cols-4 grid-cols-1 items-center md:gap-4 gap-y-4">
+              <div className="col-span-3 mt-4">
+                <Row gutter={15}>
+                  <RInput
+                    colSpanLg={12}
+                    name="name"
+                    placeholder="Enter product name"
+                  />
+                  {/* <input type="text" className="border " /> */}
+                  <RDatePicker colSpanLg={12} name="date" />
+                </Row>
+              </div>
+              <div>
+                <RButtonSmall wFull={true}>Search</RButtonSmall>
+              </div>
             </div>
-            <div className=" w-full">
-              <RButtonSmall wFull={true}>Submit</RButtonSmall>
-            </div>
-          </div>
+          </RForm>
         </div>
       </div>
     </div>

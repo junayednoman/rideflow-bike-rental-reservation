@@ -1,4 +1,4 @@
-import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
 import {
   useDeleteUserMutation,
   useGetAllUsersQuery,

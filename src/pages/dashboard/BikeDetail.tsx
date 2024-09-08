@@ -1,9 +1,9 @@
 import RForm from "@/components/form/RForm";
 import RTimePicker from "@/components/form/RTimePicker";
-import RButtonSmall from "@/components/ui/RButtonSmall";
-import RNoData from "@/components/ui/RNoData";
-import RSpinner from "@/components/ui/RSpinner";
-import RStarRating from "@/components/ui/RStarRating";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
+import RNoData from "@/components/layout/ui/RNoData";
+import RSpinner from "@/components/layout/ui/RSpinner";
+import RStarRating from "@/components/layout/ui/RStarRating";
 import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
 import { useGetSingleBikeQuery } from "@/redux/api/bikeApi";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -64,12 +64,12 @@ const BikeDetail = () => {
   return (
     <div>
       {bikeData ? (
-        <div className="flex xl:flex-row flex-col gap-14">
+        <div className="flex xl:flex-row flex-col gap-14 dark:text-gray-300">
           <div>
             <img className="md:w-[500px]" src={image} alt="" />
           </div>
           <div className="md:space-y-6 space-y-4 md:w-[500px]">
-            <h3 className="md:text-4xl text-[27px] font-semibold capitalize">
+            <h3 className="md:text-4xl text-[27px] font-semibold capitalize ">
               {name}
             </h3>
             {/* showing rating */}
@@ -78,7 +78,7 @@ const BikeDetail = () => {
               <p className="text-sm text-gray-400">(32 reviews)</p>
             </div>
             {/* product price */}
-            <h3 className="md:text-5xl text-3xl font-semibold text-primaryColor">
+            <h3 className="md:text-5xl text-3xl font-semibold text-primaryColor dark:text-gray-300">
               ${pricePerHour}
             </h3>
             {/* <div className="md:py-2 flex md:flex-row flex-col md:items-center gap-3">

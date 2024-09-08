@@ -1,4 +1,4 @@
-import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
 import { tableData } from "@/constant";
 import { Popconfirm, PopconfirmProps, Table, Tooltip } from "antd";
 import { Trash, UserCog } from "lucide-react";

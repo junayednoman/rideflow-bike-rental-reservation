@@ -3,8 +3,8 @@ import RContainer from "./RContainer";
 
 const Footer = () => {
   return (
-    <div className="space-y-8">
-      <div className="py-14 bg-primaryColor text-white">
+    <div className="space-y-8 border-t border-gray-600">
+      <div className="py-14 bg-primaryColor  text-white">
         <RContainer>
           <ul className="flex items-center justify-center gap-6">
             <li>
@@ -49,19 +49,34 @@ const Footer = () => {
             </li>
           </ul>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 my-10 text-sm">
-            <a className="hover:underline hover:text-accentColor duration-200" href="#">
+            <a
+              className="hover:underline hover:text-accentColor duration-200"
+              href="#"
+            >
               Home
             </a>
-            <a className="hover:underline hover:text-accentColor duration-200" href="#">
+            <a
+              className="hover:underline hover:text-accentColor duration-200"
+              href="#"
+            >
               About
             </a>
-            <a className="hover:underline hover:text-accentColor duration-200" href="#">
+            <a
+              className="hover:underline hover:text-accentColor duration-200"
+              href="#"
+            >
               Privacy Policy
             </a>
-            <a className="hover:underline hover:text-accentColor duration-200" href="#">
+            <a
+              className="hover:underline hover:text-accentColor duration-200"
+              href="#"
+            >
               Terms of Service
             </a>
-            <a className="hover:underline hover:text-accentColor duration-200" href="#">
+            <a
+              className="hover:underline hover:text-accentColor duration-200"
+              href="#"
+            >
               Contact Us
             </a>
           </div>

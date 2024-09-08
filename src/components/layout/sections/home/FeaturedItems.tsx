@@ -1,9 +1,9 @@
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import RContainer from "../../RContainer";
-import ProductCard from "@/components/ui/ProductCard";
+import ProductCard from "@/components/layout/ui/ProductCard";
 import { useGetAllBikesQuery } from "@/redux/api/bikeApi";
-import RSpinner from "@/components/ui/RSpinner";
-import RNoData from "@/components/ui/RNoData";
+import RSpinner from "@/components/layout/ui/RSpinner";
+import RNoData from "@/components/layout/ui/RNoData";
 import { TBike } from "@/types";
 
 const FeaturedItems = () => {

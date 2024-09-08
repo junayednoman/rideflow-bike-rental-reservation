@@ -1,5 +1,5 @@
-import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
-import RButtonSmall from "@/components/ui/RButtonSmall";
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
 import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
 import {
   useGetRentalsQuery,

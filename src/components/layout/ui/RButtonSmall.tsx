@@ -27,7 +27,7 @@ const RButtonSmall = ({
         htmlType={type}
         type="link"
         href={link}
-        className={`RButton bg-accentColor border-accentColor border-2 text-white font-medium hover:text-primaryColor rounded-none px-6 py-5 ${
+        className={`RButton bg-accentColor dark:hover:RButtonDarkHover border-accentColor border-2 text-white font-medium hover:text-primaryColor rounded-none px-6 py-5 ${
           wFull && "w-full"
         }`}
         size={size || "large"}

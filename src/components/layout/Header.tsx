@@ -1,19 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import RContainer from "./RContainer";
-import RButtonSmall from "../ui/RButtonSmall";
+import RButtonSmall from "./ui/RButtonSmall";
 import {
   CircleUserRound,
   ListCheckIcon,
   LogOut,
   Menu,
+  Moon,
   User,
 } from "lucide-react";
 import { useState } from "react";
 import { Drawer, Dropdown, MenuProps } from "antd";
-import RButtonSmallWhite from "../ui/RButtonSmallWhite";
+import RButtonSmallWhite from "./ui/RButtonSmallWhite";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logOut, useGetCurrentUser } from "@/redux/features/authSlice";
 import { toast } from "sonner";
+import { changeTheme, useGetCurrentMode } from "@/redux/features/themeSlice";
 const menuItems = [
   {
     label: "home",
@@ -37,6 +39,7 @@ const Header = () => {
   const user = useAppSelector(useGetCurrentUser);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const mode = useAppSelector(useGetCurrentMode);
 
   const [open, setOpen] = useState(false);
 
@@ -98,6 +101,10 @@ const Header = () => {
     },
   ];
 
+  const handleChangeMode = () => {
+    dispatch(changeTheme(mode === "light" ? "dark" : "light"));
+  };
+
   return (
     <header className="md:py-6 py-5 absolute top-0 left-0 w-full z-30 myHeader">
       <RContainer>
@@ -121,7 +128,16 @@ const Header = () => {
               ))}
             </ul>
           </div>
-          <div className="col-span-1 mt-1 ml-auto lg:block hidden">
+          <div className="col-span-1 mt-1 ml-auto lg:flex items-center gap-4 hidden">
+            <div className="text-white">
+              <p
+                onClick={handleChangeMode}
+                className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-2"
+              >
+                {mode}
+                <Moon className="text-white" size={25} />
+              </p>
+            </div>
             {user ? (
               <Dropdown
                 placement="bottomRight"
@@ -129,8 +145,8 @@ const Header = () => {
                 trigger={["click"]}
               >
                 <a className="rounded-full" onClick={(e) => e.preventDefault()}>
-                  <p className="border cursor-pointer bg-accentColor rounded-full p-3">
-                    <CircleUserRound className="text-white" size={30} />
+                  <p className="border-2 border-white cursor-pointer bg-accentColor rounded-full p-2">
+                    <CircleUserRound className="text-white" size={25} />
                   </p>
                 </a>
               </Dropdown>

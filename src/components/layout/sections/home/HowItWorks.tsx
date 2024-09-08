@@ -1,4 +1,4 @@
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import RContainer from "../../RContainer";
 
 const HowItWorks = () => {

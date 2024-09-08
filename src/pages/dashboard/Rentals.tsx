@@ -1,6 +1,6 @@
 import CalculateRentalCostModel from "@/components/CalculateRentalCostModel";
-import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
-import RButtonSmall from "@/components/ui/RButtonSmall";
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
 import { useGetRentalsQuery } from "@/redux/api/rentalApi";
 import { TBike, TUser } from "@/types";
 import { Table } from "antd";
@@ -72,7 +72,6 @@ const Rentals = () => {
         <DashboardSectionTitle heading="All Rentals" />
       </div>
       <Table
-       
         dataSource={rentalTableData}
         loading={isFetching}
         columns={columns}

@@ -1,6 +1,6 @@
-import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
-import RButtonSmall from "@/components/ui/RButtonSmall";
-import RNoData from "@/components/ui/RNoData";
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
+import RNoData from "@/components/layout/ui/RNoData";
 import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
 import { useCreateRentalMutation } from "@/redux/api/rentalApi";
 import { TRental, TResponse, TUser } from "@/types";
@@ -53,7 +53,7 @@ const AdvancePayment = () => {
         align="left"
         heading="Make a Tk 100 payment to confirm your rental."
       />
-      <div className="border lg:p-6 p-4 xl:w-[800px] flex md:flex-row flex-col bg-white lg:gap-14 gap-8 items-center">
+      <div className="border lg:p-6 p-4 xl:w-[800px] flex md:flex-row flex-col bg-white dark:bg-darkPrimary dark:text-gray-300 dark:border-lightBorder lg:gap-14 gap-8 items-center">
         <img src={image} className="lg:w-[120px] md:w-[180px]" alt="" />
         <div className="flex lg:flex-row flex-col lg:items-center gap-2 justify-between w-full">
           <h5 className="font-semibold text-lg">{name}</h5>

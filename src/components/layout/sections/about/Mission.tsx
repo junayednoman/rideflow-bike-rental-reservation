@@ -1,4 +1,4 @@
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import RContainer from "../../RContainer";
 
 const Mission = () => {
@@ -6,7 +6,7 @@ const Mission = () => {
     <div className="lg:py-24 md:py-20 py-16">
       <RContainer>
         <RSectionTitle heading="Our Mission" subHeading="Making biking easy" />
-        <div className="-mt-5">
+        <div className="-mt-5 dark:text-gray-300">
           <p>
             Our platform aims to make biking accessible, convenient, and
             enjoyable for everyone, whether you're an experienced cyclist or

@@ -9,7 +9,7 @@ export default function ErrorPage() {
         {error.status == 404 ? (
           <div id="error-page" className="text-center">
             <h1 className="md:text-5xl font-semibold text-4xl">
-              Oops! Page not found!
+              Oops! Page not found! 😞
             </h1>
             <p className="mt-3">Sorry, an unexpected error has occurred.</p>
             <Link
@@ -22,7 +22,7 @@ export default function ErrorPage() {
         ) : (
           <div id="error-page" className="text-center">
             <h1 className="md:text-5xl font-semibold text-4xl">
-              Oops! Something went wrong!
+              Oops! Something went wrong! 😞
             </h1>
             <p className="mt-3">Sorry, an unexpected error has occurred.</p>
             <p>

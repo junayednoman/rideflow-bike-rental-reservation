@@ -1,7 +1,7 @@
 import RForm from "@/components/form/RForm";
 import RInput from "@/components/form/RInput";
 import RContainer from "@/components/layout/RContainer";
-import RButtonSmall from "@/components/ui/RButtonSmall";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
 import { useLoginMutation } from "@/redux/api/auth/authApi";
 import { addUser } from "@/redux/features/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
@@ -9,7 +9,7 @@ import handleMutation from "@/utils/handleMutation";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import { TJwtPayload, TResponse, TUser } from "@/types";
 
 const loginDefaultValues = {
@@ -20,7 +20,6 @@ const loginDefaultValues = {
 const Login = () => {
   const location = useLocation();
   console.log(location);
- 
 
   const navigate = useNavigate();
   const [login] = useLoginMutation();

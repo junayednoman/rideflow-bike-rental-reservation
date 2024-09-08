@@ -1,4 +1,4 @@
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import RContainer from "../../RContainer";
 import { LocateIcon, Mail, Phone } from "lucide-react";
 
@@ -14,10 +14,10 @@ const ContactInfo = () => {
           <div className="grid lg:grid-cols-3 justify-center gap-12">
             <div>
               <div className="lg:flex lg:text-left text-center gap-5">
-                <div className="inline-block bg-primaryColor w-auto text-white lg:mb-0 mb-2 p-5 h-full rounded-full hover:bg-accentColor duration-200 cursor-pointer">
+                <div className="inline-block bg-primaryColor dark:bg-gray-300 dark:text-primaryColor dark:hover:text-white w-auto text-white lg:mb-0 mb-2 p-5 h-full rounded-full hover:bg-accentColor duration-200 cursor-pointer">
                   <LocateIcon size={30} />
                 </div>
-                <div>
+                <div className="dark:text-gray-300">
                   <h6 className="font-semibold uppercase text-lg">
                     Office Address
                   </h6>
@@ -29,10 +29,10 @@ const ContactInfo = () => {
             </div>
             <div>
               <div className="lg:flex lg:text-left text-center gap-5">
-                <div className="inline-block bg-primaryColor w-auto text-white lg:mb-0 mb-2 p-5 h-full rounded-full hover:bg-accentColor duration-200 cursor-pointer">
+                <div className="inline-block bg-primaryColor dark:bg-gray-300 dark:text-primaryColor dark:hover:text-white w-auto text-white lg:mb-0 mb-2 p-5 h-full rounded-full hover:bg-accentColor duration-200 cursor-pointer">
                   <Phone size={30} />
                 </div>
-                <div>
+                <div className="dark:text-gray-300">
                   <h6 className="font-semibold uppercase text-lg">
                     Phone Number
                   </h6>
@@ -45,10 +45,10 @@ const ContactInfo = () => {
             </div>
             <div>
               <div className="lg:flex lg:text-left text-center gap-5">
-                <div className="inline-block bg-primaryColor w-auto text-white lg:mb-0 mb-2 p-5 h-full rounded-full hover:bg-accentColor duration-200 cursor-pointer">
+                <div className="inline-block bg-primaryColor dark:bg-gray-300 dark:text-primaryColor dark:hover:text-white w-auto text-white lg:mb-0 mb-2 p-5 h-full rounded-full hover:bg-accentColor duration-200 cursor-pointer">
                   <Mail size={30} />
                 </div>
-                <div>
+                <div className="dark:text-gray-300">
                   <h6 className="font-semibold uppercase text-lg">
                     Email Address
                   </h6>

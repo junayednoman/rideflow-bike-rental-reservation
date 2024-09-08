@@ -28,6 +28,21 @@ h6 {
   color: white !important;
   transition: 0.4s ease;
 }
+@media (prefers-color-scheme: dark) {
+  .RButton:hover {
+    background-color: red !important;
+    border: 2px solid #1b263b !important;
+    color: white !important;
+    transition: 0.4s ease;
+  }
+}
+
+.dark\:hover\:RButtonDarkHover:hover:where(.dark, .dark *) {
+  background: white !important;
+  color: #1b263b !important;
+  border: 2px solid #fff !important;
+}
+
 .RButtonWhite:hover {
   color: #fff !important;
   border: 2px solid #fff !important;
@@ -87,9 +102,17 @@ h6 {
 .team {
   background-image: url(./bike.jpg);
 }
-.ant-layout-sider-children {
-  background-color: #fff;
-  box-shadow: 0px 1px 53px -55px rgba(0, 0, 0, 0.68);
+.dashboardSidebar {
+  background-color: #fff !important;
+  box-shadow: 0px 1px 53px -55px rgba(0, 0, 0, 0.68) !important;
+}
+.dark-mode .dashboardSidebar {
+  border-right: 1px solid #4d4d4d;
+}
+
+.dark\:dashboardSidebarDark:where(.dark, .dark *) {
+  background-color: #1b263b !important;
+  box-shadow: 0px 1px 53px -55px rgba(0, 0, 0, 0.68) !important;
 }
 .dashboardHeader {
   background-color: #fff;
@@ -97,10 +120,14 @@ h6 {
   z-index: 99 !important;
 }
 
-.ant-menu-item {
+.dashMenuItems .ant-menu-item {
   background-color: transparent;
   color: #1b263b !important;
   border-radius: 0 !important;
+}
+.dark-mode .ant-menu-item {
+  background-color: transparent;
+  color: #d0d0d0 !important;
 }
 
 .ant-menu-item-selected {
@@ -124,6 +151,9 @@ h6 {
 .ant-tabs-tab:hover {
   color: #f39c12 !important;
 }
+.dark-mode .ant-tabs-tab {
+  color: #ccc;
+}
 .ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #f39c12 !important;
 }
@@ -140,4 +170,31 @@ h6 {
     rgba(0, 0, 0, 0.3770849404214811) 72%,
     rgba(255, 255, 255, 0) 100%
   );
+}
+
+.ant-timeline-item-head-blue {
+  background: transparent !important;
+}
+.ant-timeline-item-tail {
+  background-color: rgb(152, 152, 152) !important;
+}
+
+/* dark mode styles */
+.dark-mode .ant-table-content {
+  background: #311f04;
+  border-radius: 20px 20px 0px 0px;
+  color: #ccc;
+}
+.ant-table-tbody {
+  border: 1px solid #4d4d4d !important;
+}
+.dark-mode .ant-table-tbody {
+  border: 1px solid #4d4d4d !important;
+}
+.dark-mode .ant-table-row-level-0:hover .ant-table-cell {
+  background-color: #271903;
+}
+.dark-mode .ant-table-thead .ant-table-cell {
+  background: #271903 !important;
+  color: #ccc;
 }

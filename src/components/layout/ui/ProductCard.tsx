@@ -20,7 +20,7 @@ const ProductCard = ({ details }: TProductCard) => {
   };
   const { name, brand, image, _id } = details;
   return (
-    <div className="text-center cursor-pointer rCard mb-24">
+    <div className="text-center cursor-pointer rCard mb-24 dark:bg-primaryColor">
       <div>
         <div className="relative">
           <div className=" overflow-hidden">
@@ -43,8 +43,8 @@ const ProductCard = ({ details }: TProductCard) => {
           </div>
         </div>
         <div className="relative">
-          <div className="bg-white pt-5 absolute -bottom-18 w-full z-50 ">
-            <h5 className="text-lg font-semibold mb-1">{name}</h5>
+          <div className="bg-white dark:bg-primaryColor pt-5 absolute -bottom-18 w-full z-50 ">
+            <h5 className="text-lg font-semibold mb-1 dark:text-secondaryColor">{name}</h5>
             <span className="text-[#f7ba59] text-sm font-medium">{brand}</span>
           </div>
           <div className="absolute top-0 cardBtn duration-[400ms] z-0 opacity-0 w-full">

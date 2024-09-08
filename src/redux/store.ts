@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "@/redux/features/authSlice";
 import { baseApi } from "./api/baseApi";
+import themeReducer from "@/redux/features/themeSlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
@@ -12,17 +13,23 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-const persistConfig = {
+const authPersistConfig = {
   key: "auth",
   storage,
 };
+const themePersistConfig = {
+  key: "theme",
+  storage,
+};
 
-const persistedAuthReducer = persistReducer(persistConfig, authReducer);
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
+
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
-    // baseApi.reducerPath: baseApi.red
     auth: persistedAuthReducer,
+    theme: persistedThemeReducer,
   },
   middleware: (getDefaultMiddleWares) =>
     getDefaultMiddleWares({

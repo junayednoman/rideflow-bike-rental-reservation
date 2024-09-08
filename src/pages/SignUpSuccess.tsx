@@ -1,5 +1,5 @@
 import RContainer from "@/components/layout/RContainer";
-import RButtonSmall from "@/components/ui/RButtonSmall";
+import RButtonSmall from "@/components/layout/ui/RButtonSmall";
 
 const SignUpSuccess = () => {
   return (

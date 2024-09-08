@@ -8,7 +8,7 @@ import {
   Sprout,
   Users,
 } from "lucide-react";
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 
 const Journey = () => {
   return (
@@ -25,12 +25,12 @@ const Journey = () => {
               dot: (
                 <BrickWall
                   size={30}
-                  className="p-2 rounded-full bg-primaryColor text-white hover:bg-accentColor cursor-pointer duration-200"
+                  className="p-2 rounded-full bg-primaryColor dark:bg-gray-300 dark:text-primaryColor text-white dark:hover:text-white hover:bg-accentColor cursor-pointer duration-200"
                 />
               ),
               children: <div className="md:h-[90px] sm:h-[130px] h-[200px]" />,
               label: (
-                <div className="pr-4 -mt-1">
+                <div className="pr-4 -mt-1 dark:text-gray-300">
                   <h1 className="font-semibold text-lg">Founding</h1>
                   <p>
                     In January 2015, we started with a small fleet of bikes and
@@ -45,12 +45,12 @@ const Journey = () => {
               dot: (
                 <Users
                   size={30}
-                  className="p-2 rounded-full bg-primaryColor text-white hover:bg-accentColor cursor-pointer duration-200"
+                  className="p-2 rounded-full bg-primaryColor dark:bg-gray-300 dark:text-primaryColor text-white dark:hover:text-white hover:bg-accentColor cursor-pointer duration-200"
                 />
               ),
               label: <div className="md:h-[100px] sm:h-[130px] h-[200px]" />,
               children: (
-                <div className="pl-2">
+                <div className="pl-2 dark:text-gray-300">
                   <h1 className="font-semibold text-lg ">
                     First 100 Customers
                   </h1>
@@ -67,11 +67,11 @@ const Journey = () => {
               dot: (
                 <Expand
                   size={30}
-                  className="p-2 rounded-full bg-primaryColor text-white hover:bg-accentColor cursor-pointer duration-200"
+                  className="p-2 rounded-full bg-primaryColor dark:bg-gray-300 dark:text-primaryColor text-white dark:hover:text-white hover:bg-accentColor cursor-pointer duration-200 "
                 />
               ),
               label: (
-                <div className="pr-4 -mt-1">
+                <div className="pr-4 -mt-1 dark:text-gray-300">
                   <h1 className="font-semibold text-lg">
                     Expansion to New Locations
                   </h1>
@@ -88,12 +88,12 @@ const Journey = () => {
               dot: (
                 <Globe
                   size={30}
-                  className="p-2 rounded-full bg-primaryColor text-white hover:bg-accentColor cursor-pointer duration-200"
+                  className="p-2 rounded-full bg-primaryColor dark:bg-gray-300 dark:text-primaryColor text-white dark:hover:text-white hover:bg-accentColor cursor-pointer duration-200 "
                 />
               ),
               label: <div className="md:h-[100px] sm:h-[130px] h-[200px]" />,
               children: (
-                <div className="pl-2">
+                <div className="pl-2 dark:text-gray-300">
                   <h1 className="font-semibold text-lg ">
                     Launch of Online Booking System
                   </h1>
@@ -110,11 +110,11 @@ const Journey = () => {
               dot: (
                 <Sprout
                   size={30}
-                  className="p-2 rounded-full bg-primaryColor text-white hover:bg-accentColor cursor-pointer duration-200"
+                  className="p-2 rounded-full bg-primaryColor dark:bg-gray-300 dark:text-primaryColor text-white dark:hover:text-white hover:bg-accentColor cursor-pointer duration-200 "
                 />
               ),
               label: (
-                <div className="pr-4 -mt-1">
+                <div className="pr-4 -mt-1 dark:text-gray-300">
                   <h1 className="font-semibold text-lg">
                     Sustainability Initiatives
                   </h1>
@@ -132,12 +132,12 @@ const Journey = () => {
               dot: (
                 <Milestone
                   size={30}
-                  className="p-2 rounded-full bg-primaryColor text-white hover:bg-accentColor cursor-pointer duration-200"
+                  className="p-2 rounded-full bg-primaryColor dark:bg-gray-300 dark:text-primaryColor text-white dark:hover:text-white hover:bg-accentColor cursor-pointer duration-200 "
                 />
               ),
               label: <div className="md:h-[100px] sm:h-[130px] h-[220px]" />,
               children: (
-                <div className="pl-2">
+                <div className="pl-2 dark:text-gray-300">
                   <h1 className="font-semibold text-lg ">
                     10,000 Rides Milestone{" "}
                   </h1>

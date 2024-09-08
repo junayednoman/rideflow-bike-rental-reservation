@@ -1,4 +1,4 @@
-import RButton from "@/components/ui/RButton";
+import RButton from "@/components/layout/ui/RButton";
 
 const Promo = () => {
   return (

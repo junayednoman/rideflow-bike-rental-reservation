@@ -1,6 +1,6 @@
-import RButtonSmallWhite from "@/components/ui/RButtonSmallWhite";
-import RNoData from "@/components/ui/RNoData";
-import RSpinner from "@/components/ui/RSpinner";
+import RButtonSmallWhite from "@/components/layout/ui/RButtonSmallWhite";
+import RNoData from "@/components/layout/ui/RNoData";
+import RSpinner from "@/components/layout/ui/RSpinner";
 import UpdateProfileModal from "@/components/UpdateProfileModal";
 import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
 import { Divider } from "antd";
@@ -30,13 +30,13 @@ const Profile = () => {
     <div className="md:pt-10 pt-5">
       {data?.success ? (
         <>
-          <h4 className="md:text-3xl text-xl font-semibold text-center">
+          <h4 className="md:text-3xl text-xl font-semibold text-center dark:text-gray-300">
             Welcome, <span className="text-accentColor">{name}!</span> It's
             great to see you again!
           </h4>
-          <div className="xl:w-[900px] mx-auto mt-12 bg-white">
+          <div className="xl:w-[900px] mx-auto mt-12 bg-white dark:bg-darkPrimary dark:text-gray-300">
             <div className="grid lg:grid-cols-3 grid-cols-1">
-              <div className="col-span-1 border text-center profileSidebar text-white">
+              <div className="col-span-1 border dark:border-lightBorder text-center profileSidebar text-white">
                 <div className="bg-black bg-opacity-20 md:h-[500px] py-8 px-4 flex flex-col justify-center items-center">
                   <div className="flex md:flex-col flex-row md:text-center text-left gap-4 items-center md:mb-10 mb-6">
                     <div>
@@ -68,12 +68,12 @@ const Profile = () => {
                   />
                 </div>
               </div>
-              <div className="col-span-2 border lg:h-[500px] md:py-8 py-5 lg:px-12 md:px-10 px-6">
+              <div className="col-span-2 border dark:border-lightBorder lg:h-[500px] md:py-8 py-5 lg:px-12 md:px-10 px-6">
                 <div>
                   <h4 className="font-semibold text-xl">
                     Personal Information
                   </h4>
-                  <Divider className="my-2" />
+                  <Divider className="my-2 dark:bg-lightBorder" />
                   <div className="grid md:grid-cols-2 gap-4 gap-y-8 pt-2">
                     <div>
                       <h5 className="font-semibold text-[17px]">Email</h5>
@@ -91,7 +91,7 @@ const Profile = () => {
                 </div>
                 <div className="mt-12">
                   <h4 className="font-semibold text-xl">Others</h4>
-                  <Divider className="my-2" />
+                  <Divider className="my-2 dark:bg-lightBorder" />
                   <div className="grid md:grid-cols-2 gap-4 gap-y-8 pt-2">
                     <div>
                       <h5 className="font-semibold text-[17px]">

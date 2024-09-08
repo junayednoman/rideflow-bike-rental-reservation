@@ -3,10 +3,13 @@ import ContactInfo from "@/components/layout/sections/about/ContactInfo";
 import Journey from "@/components/layout/sections/about/Journey";
 import Mission from "@/components/layout/sections/about/Mission";
 import Team from "@/components/layout/sections/about/Team";
+import { useGetCurrentMode } from "@/redux/features/themeSlice";
+import { useAppSelector } from "@/redux/hooks";
 
 const About = () => {
+  const mode = useAppSelector(useGetCurrentMode);
   return (
-    <div>
+    <div className={`${mode || "light"} bg-white dark:bg-primaryColor`}>
       <Banner />
       <Mission />
       <Team />

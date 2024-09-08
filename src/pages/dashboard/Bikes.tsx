@@ -1,4 +1,4 @@
-import DashboardSectionTitle from "@/components/ui/DashboardSectionTitle";
+import DashboardSectionTitle from "@/components/layout/ui/DashboardSectionTitle";
 import { useGetAllBikesQuery } from "@/redux/api/bikeApi";
 import { TBike, TQueryParams } from "@/types";
 import { Table, TableProps, Tooltip } from "antd";

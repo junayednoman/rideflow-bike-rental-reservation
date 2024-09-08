@@ -1,6 +1,6 @@
 import { Modal } from "antd";
 import RForm from "./form/RForm";
-import RButtonSmall from "./ui/RButtonSmall";
+import RButtonSmall from "./layout/ui/RButtonSmall";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import RInput from "./form/RInput";
 import React, { Dispatch } from "react";

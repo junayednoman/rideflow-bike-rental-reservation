@@ -1,7 +1,7 @@
-import RSectionTitle from "@/components/ui/RSectionTitle";
+import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import RContainer from "../../RContainer";
 import { teams } from "@/constant";
-import TeamItem from "@/components/ui/TeamItem";
+import TeamItem from "@/components/layout/ui/TeamItem";
 
 const Team = () => {
   return (
