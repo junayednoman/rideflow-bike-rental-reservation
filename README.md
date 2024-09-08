@@ -12,8 +12,9 @@ The **Bike Rental Booking System** is a user-friendly and responsive web applica
 - **Bike Management:** List, filter, and view detailed information about available bikes.
 - **Booking System:** Users can book bikes and make advance payments.
 - **Rental Management:** Users can view their rentals, pay for outstanding rentals, and return bikes.
-- **Admin Panel:** Manage bikes, users, and view rental details.
+- **Admin Panel:** Manage bikes, and users, and view rental details.
 - **Payment Integration:** Integrated with SSLCommerz for secure transactions.
+- **Themeing(Dark mode/Light mode):** User-friendly theme toggling system.
 
 ## Tech Stack 🛠️
 
