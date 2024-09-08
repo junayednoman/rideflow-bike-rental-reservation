@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# Bike Rental Booking System 🏍️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview 📖
 
-Currently, two official plugins are available:
+The **Bike Rental Booking System** is a user-friendly and responsive web application that allows users to rent bikes, manage bookings, and handle payments seamlessly. This project integrates a comprehensive frontend built with modern web technologies, ensuring an excellent user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live Link](https://rideflow-fawn.vercel.app)
 
-## Expanding the ESLint configuration
+## Features ✨
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **User Authentication:** Secure sign-up, login, and profile management.
+- **Bike Management:** List, filter, and view detailed information about available bikes.
+- **Booking System:** Users can book bikes and make advance payments.
+- **Rental Management:** Users can view their rentals, pay for outstanding rentals, and return bikes.
+- **Admin Panel:** Manage bikes, users, and view rental details.
+- **Payment Integration:** Integrated with SSLCommerz for secure transactions.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack 🛠️
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **React:** A JavaScript library for building user interfaces. Provides dynamic, responsive UI components.
+- **Tailwind CSS:** Utility-first CSS framework for creating custom designs without writing custom CSS.
+- **Ant Design:** A popular React UI library offering a wide range of components to enhance the user interface.
+- **Redux:** State management library for managing and centralizing application state.
+- **TypeScript:** A superset of JavaScript that adds static types, enhancing code quality and maintainability.
+- **SSLCommerz:** Payment gateway integration for handling payments securely and efficiently.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Installation & Setup 🛠️
+
+1. Clone the repository:
+    ```sh
+    https://github.com/junayednoman/rideflow-bike-rental-reservation
+    ```
+
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+
+4. Start the development server:
+    ```sh
+    npm run dev
+    ```
