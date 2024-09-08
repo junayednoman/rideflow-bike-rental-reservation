@@ -73,7 +73,7 @@ const router = createBrowserRouter([
     element: <AdvancePaymentFailure />,
   },
   {
-    path: "advance-payment-failure",
+    path: "payment-failure",
     element: <PaymentFailure />,
   },
 ]);
