@@ -18,10 +18,10 @@ import { changeTheme, useGetCurrentMode } from "@/redux/features/themeSlice";
 
 const { Header, Content } = Layout;
 const DashboardLayout = () => {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
   useEffect(() => {
-    if (window.innerWidth > 610) {
-      setCollapsed(false);
+    if (window.innerWidth < 610) {
+      setCollapsed(true);
     }
   }, []);
   const user = useAppSelector(useGetCurrentUser);

@@ -71,7 +71,7 @@ const UpdateBikeModal = ({
   return (
     <div>
       <Modal
-        className="min-w-[800px] min-h-[400px]"
+        className="lg:min-w-[800px] w-full min-h-[400px]"
         footer={null}
         title="Update a Bike"
         open={isModalOpen}

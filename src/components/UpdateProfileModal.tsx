@@ -55,7 +55,7 @@ const UpdateProfileModal = ({
   return (
     <div>
       <Modal
-        className="min-w-[600px]"
+        className="lg:min-w-[600px]"
         footer={null}
         title="Update Profile"
         open={isModalOpen}

@@ -41,7 +41,7 @@ const CreateBikeModal = ({ isModalOpen, setIsModalOpen }: TModalProps) => {
   return (
     <div>
       <Modal
-        className="min-w-[800px]"
+        className="lg:min-w-[800px] w-full"
         footer={null}
         title="Create a Bike"
         open={isModalOpen}
