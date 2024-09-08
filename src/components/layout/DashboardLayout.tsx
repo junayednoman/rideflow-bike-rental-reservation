@@ -1,6 +1,6 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Dropdown, Layout, MenuProps } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import {
@@ -18,7 +18,12 @@ import { changeTheme, useGetCurrentMode } from "@/redux/features/themeSlice";
 
 const { Header, Content } = Layout;
 const DashboardLayout = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+  useEffect(() => {
+    if (window.innerWidth > 610) {
+      setCollapsed(false);
+    }
+  }, []);
   const user = useAppSelector(useGetCurrentUser);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
