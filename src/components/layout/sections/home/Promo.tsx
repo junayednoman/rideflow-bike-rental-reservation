@@ -1,4 +1,6 @@
 import RButton from "@/components/layout/ui/RButton";
+import promo_1 from "../../../../assets/images/promo-bike.jpg";
+import promo_2 from "../../../../assets/images/promo-bike-2.jpg";
 
 const Promo = () => {
   return (
@@ -6,7 +8,12 @@ const Promo = () => {
       <div className="grid xl:grid-cols-2 items-center">
         {/* Promo Item 1 */}
         <div className="overflow-hidden">
-          <div className="bg-cover bg-center text-white promo-1 cursor-pointer">
+          <div
+            style={{
+              backgroundImage: `url(${promo_1})`,
+            }}
+            className="bg-cover bg-center text-white cursor-pointer"
+          >
             <div className="bg-black bg-opacity-25 md:p-20 py-12 lg:px-24 md:px-16 px-8 flex flex-col justify-end promoContent xl:min-h-[600px]">
               <h2 className="sm:text-4xl uppercase text-3xl font-bold">
                 Get 20% Off Your First Ride!
@@ -27,8 +34,13 @@ const Promo = () => {
         </div>
 
         {/* Promo Item 2 */}
-        <div className="overflow-hidden xl:block hidden">
-          <div className="bg-cover bg-center text-white promo-2 cursor-pointer">
+        <div
+          style={{
+            backgroundImage: `url(${promo_2})`,
+          }}
+          className="overflow-hidden xl:block hidden"
+        >
+          <div className="bg-cover bg-center text-white cursor-pointer">
             <div className="bg-black bg-opacity-25 p-20 px-24 flex flex-col justify-end promoContent xl:min-h-[600px]">
               <h2 className="text-4xl uppercase font-bold">
                 Summer Special: 30% Off All

@@ -1,5 +1,5 @@
 import bikeVideo from "@/assets/images/motorbike.mp4";
-import bannerImg from "@/../public/mototr bike bg.jpg";
+import bannerImg from "@/assets/images/mototr bike bg.jpg";
 import RButtonWhite from "@/components/layout/ui/RButtonWhite";
 import RForm from "@/components/form/RForm";
 import RInput from "@/components/form/RInput";
@@ -29,7 +29,7 @@ const Banner = () => {
       />
 
       {/* Overlay (Optional for darkening the video) */}
-      <div className="absolute h-full w-full bg-primaryColor bg-opacity-20"></div>
+      <div className="absolute h-full w-full bg-primaryColor bg-opacity-40"></div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center items-center h-full text-white md:py-0 pt-32 xl:max-w-[1350px] lg:max-w-5xl md:max-w-[768px] sm:max-w-[640px] xl:px-4 md:mx-auto lg:px-6 sm:mx-auto sm:px-4 px-3">

@@ -2,10 +2,14 @@ import { Carousel } from "antd";
 import RContainer from "../../RContainer";
 import { QuoteIcon } from "lucide-react";
 import { testimonials } from "@/constant";
+import testiImage from "@/assets/images/testi.jpg";
 
 const Testimonial = () => {
   return (
-    <div className=" bg-cover bg-center bg-no-repeat testimonial">
+    <div
+      style={{ backgroundImage: `url(${testiImage})` }}
+      className=" bg-cover bg-center bg-no-repeat testimonial"
+    >
       <div className="lg:py-32 md:py-24 py-16 bg-black bg-opacity-25">
         <RContainer>
           <Carousel

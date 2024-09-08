@@ -2,10 +2,14 @@ import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import RContainer from "../../RContainer";
 import { teams } from "@/constant";
 import TeamItem from "@/components/layout/ui/TeamItem";
+import teamImage from "@/assets/images/bike.jpg";
 
 const Team = () => {
   return (
-    <div className="team bg-cover bg-center bg-no-repeat">
+    <div
+      style={{ backgroundImage: `url(${teamImage})` }}
+      className="team bg-cover bg-center bg-no-repeat"
+    >
       <div className="bg-black bg-opacity-35 md:py-20 py-16">
         <RContainer>
           <RSectionTitle

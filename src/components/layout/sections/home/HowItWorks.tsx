@@ -1,9 +1,13 @@
 import RSectionTitle from "@/components/layout/ui/RSectionTitle";
 import RContainer from "../../RContainer";
+import howItWorks from "@/assets/images/bike.jpg";
 
 const HowItWorks = () => {
   return (
-    <div className="howItWorks bg-center bg-cover bg-no-repeat">
+    <div
+      style={{ backgroundImage: `url(${howItWorks})` }}
+      className="bg-center bg-cover bg-no-repeat"
+    >
       <div className="bg-black bg-opacity-40 md:py-24 py-16">
         <RContainer>
           <div className="">

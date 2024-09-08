@@ -6,6 +6,7 @@ import { useGetMyProfileQuery } from "@/redux/api/auth/authApi";
 import { Divider } from "antd";
 import moment from "moment";
 import { useState } from "react";
+import profileImage from "@/assets/images/profile.jpg";
 
 const Profile = () => {
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -36,7 +37,10 @@ const Profile = () => {
           </h4>
           <div className="xl:w-[900px] mx-auto mt-12 bg-white dark:bg-darkPrimary dark:text-gray-300">
             <div className="grid lg:grid-cols-3 grid-cols-1">
-              <div className="col-span-1 border dark:border-lightBorder text-center profileSidebar text-white">
+              <div
+                style={{ backgroundImage: `url(${profileImage})` }}
+                className="col-span-1 border dark:border-lightBorder text-center text-white"
+              >
                 <div className="bg-black bg-opacity-20 md:h-[500px] py-8 px-4 flex flex-col justify-center items-center">
                   <div className="flex md:flex-col flex-row md:text-center text-left gap-4 items-center md:mb-10 mb-6">
                     <div>
