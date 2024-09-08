@@ -9,7 +9,7 @@ import RButtonSmall from "../../ui/RButtonSmall";
 
 const Banner = () => {
   const handleSearchProduct = () => {
-    console.log("search product");
+    // console.log("search product");
   };
   return (
     <div className="relative md:h-screen overflow-hidden text-center">

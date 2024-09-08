@@ -96,8 +96,8 @@ const Bikes = () => {
     sorter,
     extra
   ) => {
+    console.log(pagination, sorter);
     if (extra.action === "filter") {
-      console.log(filters);
       const queryParams: TQueryParams[] = [];
       filters?.isAvailable?.forEach((item) =>
         queryParams.push({

@@ -37,7 +37,6 @@ const UpdateProfileModal = ({
 
   // handle form submit
   const handleUpdateProfile: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
     const onSuccess = () => {
       setIsModalOpen(false);
     };

@@ -198,3 +198,6 @@ h6 {
   background: #271903 !important;
   color: #ccc;
 }
+.dark-mode .anticon.anticon-filter {
+  color: #ccc;
+}

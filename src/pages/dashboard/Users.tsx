@@ -23,7 +23,7 @@ const Users = () => {
   };
 
   const { data, isFetching } = useGetAllUsersQuery(undefined);
-  console.log(data);
+
   const tableData = data?.data?.map(
     ({ _id, name, email, role, phone }: Partial<TUser>) => ({
       key: _id,

@@ -20,7 +20,7 @@ const ProtectedRoute = ({ children, role }: TProtectedRouteProps) => {
     if (!token && location?.state?.message) {
       toast(location?.state?.message, { duration: 2000 });
     }
-  }, []);
+  }, [location?.state?.message, token]);
 
   if (!token) {
     return (

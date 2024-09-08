@@ -6,8 +6,7 @@ import { toast } from "sonner";
 
 const UserManagement = () => {
   // manage delete bike
-  const confirm: PopconfirmProps["onConfirm"] = (e) => {
-    console.log(e);
+  const confirm: PopconfirmProps["onConfirm"] = () => {
     toast.success("Click on Yes");
   };
 

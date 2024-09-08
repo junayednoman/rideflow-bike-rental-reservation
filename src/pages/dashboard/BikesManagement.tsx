@@ -137,11 +137,12 @@ const BikesManagement = () => {
 
   // handle filtering
   const onChange: TableProps<TBike>["onChange"] = (
-    fpagination,
+    pagination,
     filters,
     sorter,
     extra
   ) => {
+    console.log(pagination, sorter);
     if (extra.action === "filter") {
       const queryParams: TQueryParams[] = [];
       filters?.isAvailable?.forEach((item) =>

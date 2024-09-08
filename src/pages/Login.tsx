@@ -19,7 +19,6 @@ const loginDefaultValues = {
 
 const Login = () => {
   const location = useLocation();
-  console.log(location);
 
   const navigate = useNavigate();
   const [login] = useLoginMutation();
@@ -27,9 +26,8 @@ const Login = () => {
 
   const onSuccess = (res: TResponse<TUser>) => {
     const token = res.token;
-    console.log(res);
     const { email, role } = jwtDecode(token!) as TJwtPayload;
-    console.log(res);
+
     const user = { email, role };
     const payload = { token, user };
     dispatch(addUser(payload));
