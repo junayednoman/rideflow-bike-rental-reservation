@@ -1,8 +1,8 @@
-# Bike Rental Booking System 🏍️
+# Rideflow - Bike Rental Booking System 🏍️
 
 ## Overview 📖
 
-The **Bike Rental Booking System** is a user-friendly and responsive web application that allows users to rent bikes, manage bookings, and handle payments seamlessly. This project integrates a comprehensive frontend built with modern web technologies, ensuring an excellent user experience.
+**Rideflow** is a user-friendly and responsive web application that allows users to rent bikes, manage bookings, and handle payments seamlessly. This project integrates a comprehensive frontend built with modern web technologies, ensuring an excellent user experience.
 
 [Live Link](https://rideflow-fawn.vercel.app)
 
